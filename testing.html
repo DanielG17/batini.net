@@ -76,6 +76,9 @@
             margin: 20px 0;
         }
     </style>
+
+    <script src="poll.js" defer></script>
+
 </head>
 <body>
     <header>
@@ -90,8 +93,17 @@
 
     <div class="content">
         <h2>TESTING userInput</h2>
-        
-	<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc1aick9akn6SadnOV3vnv6wP2QZcPNAwOZkSX9VOFH0ZN4eQ/viewform?embedded=true" width="640" height="421" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
+	<div id="poll">
+    	<h3>Vote for your favorite color:</h3>
+    	    <button onclick="vote('Red')">Red</button>
+    	    <button onclick="vote('Blue')">Blue</button>
+    	    <button onclick="vote('Green')">Green</button>
+    	<p id="message"></p>
+	</div>
+    </div>
+
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc1aick9akn6SadnOV3vnv6wP2QZcPNAwOZkSX9VOFH0ZN4eQ/viewform?embedded=true" width="640" height="421" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
 </body>
 </html>
