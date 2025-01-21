@@ -15,7 +15,7 @@
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
+            padding: 0 0 50px 0;
             text-align: center;
         }
         header {
@@ -23,27 +23,30 @@
             padding: 10px 0;
         }
         nav {
-            background-color: #333;
+            background-color: #000000;
             overflow: hidden;
             display: flex;
             justify-content: center;
         }
         nav a {
-            color: white;
+            color: #00ff00;
             padding: 14px 20px;
             text-decoration: none;
             display: block;
             text-align: center;
+	    transition: background-color 0.3s, color 0.3s;
         }
         nav a:hover {
-            background-color: #575757;
+            background-color: #00ff00;
+	    color: #000000;
         }
         .images-container {
             display: flex;
             justify-content: center;
+            align-items: flex-start;
             gap: 20px;
-            flex-wrap: wrap;
             margin-top: 20px;
+            flex-wrap: wrap;
         }
         .image-title {
             margin-bottom: 10px;
@@ -59,6 +62,7 @@
             font-family: Arial, sans-serif;
             color: red;
             font-size: 24px;
+            text-align: center;
             margin: 20px 0;
         }
         .centered-title-green {
@@ -75,12 +79,13 @@
 </head>
 <body>
     <header>
-        <h1>AbbatiniNews Archive</h1>
+        <h1>Abbatini</h1>
         <nav>
-            <a href="index.html">Home</a>
-            <a href="archive.html">Archive</a>
-            <a href="aboutus.html">About Us</a>
-        </nav>
+    	    <a href="index.html">Home</a>
+    	    <a href="archive.html">Archive</a>
+    	    <a href="aboutus.html">About Us</a>
+	    <a href="testing.html">TESTING</a>
+    	</nav>
     </header>
 
     <div class="image-list">
