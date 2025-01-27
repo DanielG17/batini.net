@@ -41,29 +41,36 @@
 	    color: #000000;
         }
         .images-container {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            gap: 20px;
-            margin-top: 20px;
-            flex-wrap: wrap;
-        }
-        .image-title {
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        img {
-            max-width: 90%;
-            height: auto;
-            border: 1px solid #ddd;
+    	    display: flex;
+    	    flex-direction: column;
+	    align-items: flex-start;
+    	    gap: 30px;
+	    margin-left: 480px;
+    	    width: 100%;
+	}
+	.image-row {
+    	    display: flex;
+	    justify-content: flex-start;
+    	    align-items: center;
+    	    gap: 30px;
+	}
+	.image-row img {
+    	    max-width: 200px;
+            max-height: 200px;
+    	    object-fit: cover;
+	    border: 5px solid #00ff00;
             border-radius: 5px;
-        }
+	}
+	.image-title {
+    	    font-size: 20px;
+    	    text-align: right;
+	}
         .centered-title {
             font-family: Arial, sans-serif;
             color: red;
             font-size: 24px;
             text-align: center;
-            margin: 20px 0;
+            margin: 20px 0;	
         }
         .centered-title-green {
             color: green;
@@ -79,11 +86,34 @@
 </head>
 <body>
     <header>
-        <h1>Abbatini</h1>
+        <h1>BÃT1N1</h1>
         <nav>
     	    <a href="index.html">Home</a>
     	    <a href="archive.html">Archive</a>
     	    <a href="aboutus.html">About Us</a>
     	</nav>
+    </header>
+
+	<div class="content">
+    <h2>FEBRUARY ELECTION</h2>
+    <p>
+        From the 1st of February till the 8th (Election Day), <br>the 4 Abbatini citizens will decide who amongst them will contest the election against the administrator.
+    </p>
+    <h2>AbbatiniNews: CURRENT PROJECTION</h2>
+        <div class="images-container">
+            <div class="image-row">
+                <img src="john.jpeg" alt="Image 1">
+                <div class="image-title">CURRENT ADMIN: John Gatt</div>
+            </div>
+	    <p>
+		VS
+	    </p>
+            <div class="image-row">
+                <img src="question.jpeg" alt="Image 2">
+                <div class="image-title">PROJECTED CANDIDATE: _____</div>
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
