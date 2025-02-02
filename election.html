@@ -80,6 +80,7 @@
             padding: 10px;
             border: 5px solid #00ff00;
             border-radius: 5px;
+	    box-sizing: border-box;
     	}
     	.graph-title {
             font-size: 22px;
@@ -92,6 +93,18 @@
 	.graph img {
 	    max-width: 100%;
     	    height: auto;
+	}
+
+	@media (max-width: 768px) {
+            .graph-container {
+            	position: relative;
+            	top: auto;
+            	left: 5px;
+            	margin: 20px auto;
+            	width: calc(100% - 40px);
+            	max-width: 300px;
+            }
+    	}
 
     </style>
 </head>
