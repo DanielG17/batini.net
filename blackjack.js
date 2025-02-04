@@ -49,12 +49,15 @@ class Deck {
 }
 
 class Blackjack {
-    constructor() {
-        this.deck = new Deck();
-        this.playerHand = [];
-        this.dealerHand = [];
-        this.gameOver = false;
-        this.startGame();
+    constructor(displayMessage) {
+    	this.displayMessage = displayMessage;
+    	this.deck = new Deck();
+    	this.playerHand = [];
+    	this.dealerHand = [];
+    	this.gameOver = false;
+    	this.startGame();
+    	this.playerHit = this.playerHit.bind(this);
+    	this.playerStand = this.playerStand.bind(this);
     }
 
     startGame() {
