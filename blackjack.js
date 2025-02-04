@@ -98,7 +98,7 @@ class Blackjack {
         let img = document.createElement('img');
         img.src = `cards/${card.getImagePath()}`;
         img.alt = card.toString();
-        img.style.width = '50px'; // Set the size as needed
+        img.style.width = '80px'; // Set the size as needed
         img.style.marginBottom = '10px';
         return img;
     });
@@ -108,7 +108,7 @@ class Blackjack {
             let img = document.createElement('img');
             img.src = 'cards/back.jpeg';
             img.alt = 'Hidden Card';
-            img.style.width = '50px'; // Set the size as needed
+            img.style.width = '80px'; // Set the size as needed
             img.style.marginBottom = '10px';
             return img;
         })
@@ -116,7 +116,7 @@ class Blackjack {
             let img = document.createElement('img');
             img.src = `cards/${card.getImagePath()}`;
             img.alt = card.toString();
-            img.style.width = '50px'; // Set the size as needed
+            img.style.width = '80px'; // Set the size as needed
             img.style.marginBottom = '10px';
             return img;
         });
