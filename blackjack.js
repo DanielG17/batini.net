@@ -60,6 +60,13 @@ class Blackjack {
     	this.playerStand = this.playerStand.bind(this);
     }
 
+    displayMessage(message) {
+        let messageElement = document.createElement('div');
+        messageElement.innerText = message;
+        messageElement.classList.add('game-message');
+        document.getElementById('game-output').appendChild(messageElement);
+    }
+
     startGame() {
         document.getElementById("start-button").disabled = true;
         document.getElementById("hit-button").style.display = "inline";
@@ -243,13 +250,6 @@ class Blackjack {
         this.gameOver = true;
         document.getElementById("hit-button").style.display = "none";
         document.getElementById("stand-button").style.display = "none";
-    }
-
-    displayMessage(message) {
-    let messageElement = document.createElement('div');
-    messageElement.innerText = message;
-    messageElement.classList.add('game-message');
-    document.getElementById('game-output').appendChild(messageElement);
     }
 }
 
