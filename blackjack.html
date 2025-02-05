@@ -43,33 +43,33 @@
             background-color: #00ff00;
             color: #000000;
         }
-	img {
+	    img {
     	    max-width: 90%;
     	    height: auto;
-	    border: 3px solid #00ff00;
-	    border-radius: 5px;
-	    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+	        border: 3px solid #00ff00;
+	        border-radius: 5px;
+	        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     	    margin-right: 15px;
-	    margin-left: 15px;
-	    margin-top: 10px;
+	        margin-left: 15px;
+	        margin-top: 10px;
     	    margin-bottom: 10px;
     	    transition: transform 0.3s ease;
-	    animation: card-deal 1s ease-in-out;
-	}
-	img:hover {
+	        animation: card-deal 1s ease-in-out;
+	    }
+	    img:hover {
     	    transform: scale(1.1);
-	}
-	.card-flip {
+	    }
+	    .card-flip {
     	    transform: rotateY(180deg);
     	    transition: transform 0.5s ease;
-	}
-	.card {
+	    }
+	    .card {
     	    width: 80px;
     	    height: 120px;
     	    backface-visibility: hidden;
     	    perspective: 1000px;
-	}
-	button {
+	    }
+	    button {
     	    background-color: #00ff00;
     	    color: #000;
     	    border: 2px solid #00ff00;
@@ -79,28 +79,28 @@
     	    border-radius: 5px;
     	    cursor: pointer;
     	    transition: background-color 0.3s, color 0.3s;
-	    width: 170px;
-	    margin-top: 10px;
-	    margin-right: 50px;
-	    margin-left: 50px;
-	    display: inline-block;
+	        width: 170px;
+	        margin-top: 10px;
+	        margin-right: 50px;
+	        margin-left: 50px;
+	        display: inline-block;
     	    text-align: center;
     	    line-height: normal;
-	}
-	button:disabled {
+	    }
+	    button:disabled {
     	    background-color: #d3d3d3;
     	    border: 2px solid #a9a9a9;
     	    cursor: not-allowed;
-	}
-	button:hover {
+	    }
+	    button:hover {
     	    background-color: #000;
     	    color: #00ff00;
-	}
-	button:hover:disabled {
+	    }
+	    button:hover:disabled {
         background-color: #557555;
 		color: black;
-    }
-	.game-status {
+        }
+	    .game-status {
     	    position: fixed;
     	    top: 50%;
     	    left: 50%;
@@ -112,16 +112,16 @@
     	    font-weight: bold;
     	    border-radius: 10px;
     	    display: none;
-	}
-	.hand-title {
+	    }
+	    .hand-title {
     	    font-size: 18px; 
     	    font-weight: normal;
     	    text-align: center;
     	    color: #ff6900;
     	    margin-bottom: 10px;
     	    text-transform: uppercase;
-	}
-	.game-message {
+	    }
+	    .game-message {
     	    font-size: 18px;
     	    font-weight: bold;
     	    text-align: center;
@@ -129,13 +129,12 @@
     	    margin: 8px 0;
     	    padding: 5px;
 	    text-transform: uppercase;
-	}
-	@keyframes card-deal {
+	    }
+	    @keyframes card-deal {
     	    0% { transform: scale(0); opacity: 0; }
     	    50% { transform: scale(1.2); opacity: 0.8; }
     	    100% { transform: scale(1); opacity: 1; }
-	}
-
+	    }
     </style>
 </head>
 <body>
@@ -145,7 +144,6 @@
 	    <a href="games.html">Games</a>
     	</nav>
     </header>
-    <br>
     <button id="start-button">NEW ROUND</button>
     <div id="game-output"></div>
     <button id="hit-button" onclick="blackjackGame.playerHit()" style="display:none;">HIT</button>
