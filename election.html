@@ -67,10 +67,14 @@
         .vs-text {
             font-size: 24px;
             font-weight: bold;
+            color: #00ff00;
             text-align: center;
             margin: 10px 0;
         }
-	.graph-container {
+        .red-text {
+            color: red;
+        }
+	    .graph-container {
             position: absolute;
             top: 150px;
             left: 25px;
@@ -80,7 +84,7 @@
             padding: 10px;
             border: 5px solid #00ff00;
             border-radius: 5px;
-	    box-sizing: border-box;
+	        box-sizing: border-box;
     	}
     	.graph-title {
             font-size: 22px;
@@ -90,12 +94,11 @@
     	.graph {
             text-align: center;
     	}
-	.graph img {
+	    .graph img {
 	    max-width: 100%;
-    	    height: auto;
-	}
-
-	@media (max-width: 768px) {
+        height: auto;
+	    }
+	    @media (max-width: 768px) {
     	    .graph-container {
         	position: relative;
         	top: auto;
@@ -111,8 +114,7 @@
         	max-width: 100%;
         	height: auto;
     	    }
-	}
-
+	    }
     </style>
 </head>
 <body>
@@ -143,20 +145,19 @@
         <div class="images-container">
             <div class="image-row">
                 <img src="election/john.jpeg" alt="Image 1">
-                <div class="image-title">CURRENT ADMIN: John Gatt</div>
+                <div class="image-title">CURRENT ADMIN: <span class="red-text">John Gatt</span></div>
             </div>
-
             <p class="vs-text">VS</p>
 
             <div class="image-row">
                 <img src="election/grech.JPG" alt="Image 2">
-                <div class="image-title">CONFIRMED CANDIDATE: Daniel Grech</div>
+                <div class="image-title">CONFIRMED CANDIDATE: <span class="red-text">Daniel Grech</span></div>
             </div>
         </div>
     </div>
 
     <br><br>
-    <h3>OFFICIAL ELECTORAL STATEMENT: John Gatt (incumbent)</h3>
+    <h3>OFFICIAL ELECTORAL STATEMENT: <span class="red-text">John Gatt</span> (incumbent)</h3>
     <p>
 	Jien nemmen illi kont suffiċjenti fil-kariga li kelli f’idejja, minħabba li f’idejja jinsabu l-Kostituzzjoni u l-kont soċjali tal-BÃT1N1.
     </p>
@@ -165,12 +166,23 @@
     </p>
 
     <br>
-    <h3>OFFICIAL ELECTORAL STATEMENT: Daniel Grech (candidate)</h3>
+    <h3>OFFICIAL ELECTORAL STATEMENT: <span class="red-text">Daniel Grech</span> (candidate)</h3>
     <p>
-	Filwaqt li ovvjament nirrispetta lil Gatt bħala amminstratur u x’għamel għall-grupp fil-passat, nemmen li mhux jagħmel biżżejjed kurrentament.
+	Filwaqt li ovvjament nirrispetta lil Gatt bħala amminstratur u x’għamel għall-grupp fil-passat, nemmen illi mhux jagħmel biżżejjed kurrentament.
     </p>
     <p>
 	Nemmen illi xogħli fil-manteniment tas-sit u bħala l-editur tal-gażżetta tal-grupp juri kemm jien lest namministra l-BÃT1N1.
+    </p>
+
+    <h2><br><br>BatiniNews: ELECTION COVERAGE<br></h2>
+    <p>
+        00:00 - Election Day begins
+    </p>
+    <p>
+        12:00 - Poll projecting Election
+    </p>
+    <p>
+        TBA
     </p>
 </body>
 </html>
