@@ -10,7 +10,11 @@ function login() {
     document.getElementById("loginContent").innerHTML = `
         <h2>Login</h2>
         <input type="text" id="username" placeholder="Username" style="padding: 10px; width: 80%; margin-bottom: 10px; font-size: 16px; border: 2px solid #00ff00; border-radius: 5px; text-align: center;"><br>
-        <input type="password" id="password" placeholder="Password" style="padding: 10px; width: 80%; margin-bottom: 20px; font-size: 16px; border: 2px solid #00ff00; border-radius: 5px; text-align: center;"><br>
+        <input type="password" id="password" placeholder="Password" style="padding: 10px; width: 80%; margin-bottom: 5px; font-size: 16px; border: 2px solid #00ff00; border-radius: 5px; text-align: center;"><br>
+        <p style="font-size: 16px; color: #ff0000; margin-bottom: 20px;">
+            No account / Forgot password?<br>
+            Contact <strong>Daniel Grech</strong>
+        </p>
         <buttonTwo onclick="validateLogin()" style="background-color: #00ff00; color: #000; padding: 14px 25px; font-size: 18px; font-weight: bold; border-radius: 5px; cursor: pointer; width: 50%; transition: background-color 0.3s, color 0.3s; margin: 0 auto; margin-bottom: 10px;">Submit</buttonTwo><br>
         <buttonTwo onclick="closeLogin()" style="background-color: #ff0000; color: #fff; padding: 14px 25px; font-size: 18px; font-weight: bold; border-radius: 5px; cursor: pointer; width: 50%; margin-top: 10px; transition: background-color 0.3s, color 0.3s; margin: 0 auto;">Cancel</buttonTwo>
     `;
