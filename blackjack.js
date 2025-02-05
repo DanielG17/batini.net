@@ -6,7 +6,7 @@ class Card {
 
     getValue() {
         if (['J', 'Q', 'K'].includes(this.rank)) return 10;
-        if (this.rank === 'A') return 11; // Ace handling done later
+        if (this.rank === 'A') return 11;
         return parseInt(this.rank);
     }
 
@@ -61,48 +61,65 @@ class Blackjack {
     }
 
     startGame() {
-        this.displayMessage("Welcome to Blackjack!");
-        this.playerHand.push(this.deck.deal(), this.deck.deal());
-        this.dealerHand.push(this.deck.deal(), this.deck.deal());
-
-        this.showHands(true);
+        document.getElementById("start-button").disabled = true;
         document.getElementById("hit-button").style.display = "inline";
         document.getElementById("stand-button").style.display = "inline";
+        document.getElementById("hit-button").disabled = true;
+        document.getElementById("stand-button").disabled = true;
+        let delay = 0;
+
+        setTimeout(() => {
+            document.getElementById("hit-button").disabled = false;
+            document.getElementById("stand-button").disabled = false;
+        }, 2400);
+        
+        setTimeout(() => {
+            this.playerHand.push(this.deck.deal());
+            this.showHands(false);
+        }, delay);
+        delay += 800;
+    
+        setTimeout(() => {
+            this.playerHand.push(this.deck.deal());
+            this.showHands(false);
+        }, delay);
+        delay += 800;
+    
+        setTimeout(() => {
+            this.dealerHand.push(this.deck.deal());
+            this.showHands(true);
+        }, delay);
+        delay += 800;
     }
 
     calculateHand(hand) {
-        let total = 0;
-        let aces = 0;
+    let total = 0;
+    let aces = 0;
 
-        hand.forEach(card => {
-            total += card.getValue();
-            if (card.rank === 'A') aces++;
-        });
+    // First pass to calculate the total and count aces
+    hand.forEach(card => {
+        total += card.getValue();
+        if (card.rank === 'A') aces++;
+    });
 
-        while (total > 21 && aces > 0) {
-            total -= 10;
-            aces--;
-        }
-
-        return total;
+    // Adjust for Aces if total exceeds 21
+    while (total > 21 && aces > 0) {
+        total -= 10;
+        aces--;
     }
 
+    return total;
+    }
+
+
     showHands(hideDealer = false) {
-
-    const delayCard = (images, delayTime, gameOutput) => {
-        images.forEach((img, index) => {
-            setTimeout(() => {
-                gameOutput.appendChild(img); // Add the card image to the game output
-            }, delayTime * index); // Delay each card by 'delayTime' * index
-        });
-    };
-
     let playerImages = this.playerHand.map(card => {
         let img = document.createElement('img');
         img.src = `cards/${card.getImagePath()}`;
         img.alt = card.toString();
-        img.style.width = '80px'; // Set the size as needed
+        img.style.width = '90px'; // Set the size as needed
         img.style.marginBottom = '10px';
+        img.classList.add('player-card'); // Add a unique class for player cards
         return img;
     });
 
@@ -111,41 +128,46 @@ class Blackjack {
             let img = document.createElement('img');
             img.src = 'cards/back.jpeg';
             img.alt = 'Hidden Card';
-            img.style.width = '80px'; // Set the size as needed
+            img.style.width = '90px'; // Set the size as needed
             img.style.marginBottom = '10px';
+            img.classList.add('dealer-card'); // Add class for dealer cards
             return img;
         })
-        : this.dealerHand.map(card => {
+        : this.dealerHand.map((card, index) => {
             let img = document.createElement('img');
             img.src = `cards/${card.getImagePath()}`;
             img.alt = card.toString();
-            img.style.width = '80px'; // Set the size as needed
+            img.style.width = '90px'; // Set the size as needed
             img.style.marginBottom = '10px';
+            img.classList.add('dealer-card'); // Add class for dealer cards
+            if (index > 1) {
+                img.classList.add('dealing-animation'); // Add animation class only for dealer's additional cards
+            }
             return img;
         });
 
-        // Clear the previous content
-        const gameOutput = document.getElementById('game-output');
-        gameOutput.innerHTML = '';
-	gameOutput.innerHTML += `<br>`; 
+    // Clear the previous content
+    const gameOutput = document.getElementById('game-output');
+    gameOutput.innerHTML = '';
+    gameOutput.innerHTML += `<br>`; 
 
-        // Add labels and images for player and dealer to the output container
-        let playerLabel = document.createElement('div');
-        playerLabel.innerText = 'Your Hand:';
-	playerLabel.classList.add('hand-title');
-        gameOutput.appendChild(playerLabel);
+    // Add labels and images for player and dealer to the output container
+    let playerLabel = document.createElement('div');
+    playerLabel.innerText = 'Your Hand:';
+    playerLabel.classList.add('hand-title');
+    gameOutput.appendChild(playerLabel);
 
-        playerImages.forEach(img => gameOutput.appendChild(img));
+    playerImages.forEach(img => gameOutput.appendChild(img));
 
-        gameOutput.innerHTML += `<br>`; //
+    gameOutput.innerHTML += `<br>`;
 
-        let dealerLabel = document.createElement('div');
-        dealerLabel.innerText = 'Dealer\'s Hand:';
-	dealerLabel.classList.add('hand-title');
-        gameOutput.appendChild(dealerLabel);
+    let dealerLabel = document.createElement('div');
+    dealerLabel.innerText = 'Dealer\'s Hand:';
+    dealerLabel.classList.add('hand-title');
+    gameOutput.appendChild(dealerLabel);
 
-        dealerImages.forEach(img => gameOutput.appendChild(img));
-	gameOutput.innerHTML += `<br>`;
+    dealerImages.forEach(img => gameOutput.appendChild(img));
+    gameOutput.innerHTML += `<br>`;
     }
 
     playerHit() {
@@ -161,21 +183,43 @@ class Blackjack {
 
     playerStand() {
         if (this.gameOver) return;
-        this.displayMessage("You chose to stand.");
         this.dealerTurn();
     }
 
     dealerTurn() {
-        this.displayMessage("Dealer reveals hand...");
-        this.showHands(false);
+    this.showHands(false); // Initially show one card and hide the other
 
-        while (this.calculateHand(this.dealerHand) < this.calculateHand(this.playerHand) && this.calculateHand(this.dealerHand) < 21) {
-            this.displayMessage("Dealer hits...");
-            this.dealerHand.push(this.deck.deal());
-            this.showHands(false);
+    let dealerCardsRevealed = 1; // Start with the first card revealed
+    let dealerTotal = this.calculateHand(this.dealerHand);
+    let playerTotal = this.calculateHand(this.playerHand);
+    document.getElementById("hit-button").disabled = true;
+    document.getElementById("stand-button").disabled = true;
+
+    // Function to reveal the next dealer card with a delay
+    const revealDealerCard = () => {
+        dealerTotal = this.calculateHand(this.dealerHand);
+        // Dealer busts
+        if (dealerTotal > 21) {
+            this.determineWinner();
+            this.endGame();
+            return;
         }
 
-        this.determineWinner();
+        // Dealer continues to hit if they are losing and their total is less than 21
+        if (dealerTotal < playerTotal) {
+            this.dealerHand.push(this.deck.deal());
+            this.showHands(false);
+            dealerCardsRevealed++;
+            setTimeout(revealDealerCard, 1000);
+        } else {
+            this.determineWinner();
+        }
+    };
+    setTimeout(() => {
+        this.showHands(false);
+        revealDealerCard();
+    }, 1000);
+
     }
 
     determineWinner() {
@@ -189,6 +233,7 @@ class Blackjack {
         } else if (playerTotal < dealerTotal) {
             this.displayMessage("Dealer wins!");
         } else {
+            console.log("Tie")
             this.displayMessage("It's a tie!");
         }
         this.endGame();
@@ -203,32 +248,20 @@ class Blackjack {
     displayMessage(message) {
     let messageElement = document.createElement('div');
     messageElement.innerText = message;
-    messageElement.classList.add('game-message'); // Add the new class for styling
+    messageElement.classList.add('game-message');
     document.getElementById('game-output').appendChild(messageElement);
     }
 }
 
 let blackjackGame = null;
 
-document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("hit-button").addEventListener("click", function () {
-        if (blackjackGame) {
-            blackjackGame.playerHit();
-        } else {
-            console.error("Blackjack game not started.");
-        }
-    });
-
-    document.getElementById("stand-button").addEventListener("click", function () {
-        if (blackjackGame) {
-            blackjackGame.playerStand();
-        } else {
-            console.error("Blackjack game not started.");
-        }
-    });
-
-    document.getElementById("start-button").addEventListener("click", function () {
-        document.getElementById('game-output').innerHTML = ""; // Clear output
-        blackjackGame = new Blackjack();
-    });
+document.getElementById("start-button").addEventListener("click", function () {
+    if (!blackjackGame) {
+        blackjackGame = new Blackjack(message => {
+            let messageElement = document.createElement('div');
+            messageElement.innerText = message;
+            messageElement.classList.add('game-message');
+            document.getElementById('game-output').appendChild(messageElement);
+        });
+    }
 });
