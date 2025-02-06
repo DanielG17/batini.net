@@ -79,7 +79,7 @@ class Blackjack {
         setTimeout(() => {
             document.getElementById("hit-button").disabled = false;
             document.getElementById("stand-button").disabled = false;
-        }, 2400);
+        }, 3200);
         
         setTimeout(() => {
             this.playerHand.push(this.deck.deal());
@@ -93,6 +93,12 @@ class Blackjack {
         }, delay);
         delay += 800;
     
+        setTimeout(() => {
+            this.dealerHand.push(this.deck.deal());
+            this.showHands(true);
+        }, delay);
+        delay += 800;
+
         setTimeout(() => {
             this.dealerHand.push(this.deck.deal());
             this.showHands(true);
@@ -122,32 +128,28 @@ class Blackjack {
         img.alt = card.toString();
         img.style.width = '90px'; // Set the size as needed
         img.style.marginBottom = '10px';
-        img.classList.add('player-card'); // Add a unique class for player cards
+        img.classList.add('player-card');
         return img;
     });
 
-    let dealerImages = hideDealer
-        ? [this.dealerHand[0]].map(card => {
-            let img = document.createElement('img');
+    let dealerImages = this.dealerHand.map((card, index) => {
+        let img = document.createElement('img');
+
+        if (hideDealer && index === 1) {
             img.src = 'cards/back.jpeg';
+            img.style.borderRadius = '12px';
             img.alt = 'Hidden Card';
-            img.style.width = '90px'; // Set the size as needed
-            img.style.marginBottom = '10px';
-            img.classList.add('dealer-card'); // Add class for dealer cards
-            return img;
-        })
-        : this.dealerHand.map((card, index) => {
-            let img = document.createElement('img');
+        } else {
             img.src = `cards/${card.getImagePath()}`;
             img.alt = card.toString();
-            img.style.width = '90px'; // Set the size as needed
-            img.style.marginBottom = '10px';
-            img.classList.add('dealer-card'); // Add class for dealer cards
-            if (index > 1) {
-                img.classList.add('dealing-animation'); // Add animation class only for dealer's additional cards
-            }
-            return img;
-        });
+        }
+
+        img.style.width = '90px'; 
+        img.style.marginBottom = '10px';
+        img.classList.add('dealer-card'); 
+        return img;
+    });
+
 
     // Clear the previous content
     const gameOutput = document.getElementById('game-output');
@@ -207,7 +209,7 @@ class Blackjack {
             return;
         }
         // Dealer continues to hit if they are losing and their total is less than 21
-        if (dealerTotal < playerTotal) {
+        if (dealerTotal < playerTotal || (dealerTotal === playerTotal && dealerTotal <= 16)) {
             this.dealerHand.push(this.deck.deal());
             this.showHands(false);
             dealerCardsRevealed++;
@@ -251,7 +253,10 @@ class Blackjack {
 let blackjackGame = null;
 
 document.getElementById("start-button").addEventListener("click", function () {
-    if (!blackjackGame) {
+    // If blackjackGame already exists, reset it
+    if (blackjackGame) {
+        blackjackGame.resetGame();
+    } else {
         blackjackGame = new Blackjack(message => {
             let messageElement = document.createElement('div');
             messageElement.innerText = message;
