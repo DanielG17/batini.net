@@ -28,6 +28,7 @@ class Deck {
     }
 
     initializeDeck() {
+        this.cards = [];
         this.suits.forEach(suit => {
             this.ranks.forEach(rank => {
                 this.cards.push(new Card(rank, suit));
