@@ -238,22 +238,20 @@
             }
         }
 
-        // Function to format time to two digits
-        // Function to format time to always display two digits for seconds, three for milliseconds, and two for nanoseconds
-        function formatTime(time, digits) {
-            return time.toString().padStart(digits, '0');
-        }
-
         // Function to start the timer
         function startTimer() {
             timerInterval = setInterval(function() {
                 let elapsedTime = performance.now() - startTime; // Elapsed time in milliseconds
                 let seconds = Math.floor(elapsedTime / 1000);
                 let milliseconds = Math.floor(elapsedTime % 1000);
-                let nanoseconds = Math.floor((elapsedTime % 1) * 100); // Nanoseconds part (for display purposes)
-                
+                let nanoseconds = Math.floor((elapsedTime % 1) * 100);
+
+                let paddedSeconds = String(seconds).padStart(2, '0'); // Ensure two digits for seconds
+                let paddedMilliseconds = String(milliseconds).padStart(3, '0'); // Ensure three digits for milliseconds
+                let paddedNanoseconds = String(nanoseconds).padStart(2, '0'); // Ensure two digits for nanoseconds
+
                 // Format the timer display
-                let formattedTime = `${formatTime(seconds, 2)}:${formatTime(milliseconds, 3)}.${formatTime(nanoseconds, 2)}`;
+                let formattedTime = `${paddedSeconds}:${paddedMilliseconds}.${paddedNanoseconds}`;
                 timerDisplay.innerText = formattedTime;
             }, 10); // Update every 10ms
         }
@@ -279,9 +277,13 @@
                 let seconds = Math.floor(elapsedTime / 1000);
                 let milliseconds = Math.floor(elapsedTime % 1000);
                 let nanoseconds = Math.floor((elapsedTime % 1) * 100);
+
+                let paddedSeconds = String(seconds).padStart(2, '0'); // Ensure two digits for seconds
+                let paddedMilliseconds = String(milliseconds).padStart(3, '0'); // Ensure three digits for milliseconds
+                let paddedNanoseconds = String(nanoseconds).padStart(2, '0'); // Ensure two digits for nanoseconds
                 
                 // Format the final reaction time
-                let formattedTime = `${formatTime(seconds)}:${formatTime(milliseconds)}.${formatTime(nanoseconds)}`;
+                let formattedTime = `${paddedSeconds}:${paddedMilliseconds}.${paddedNanoseconds}`;
                 timerDisplay.innerText = formattedTime;
 
                 this.resetGame();
