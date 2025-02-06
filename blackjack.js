@@ -52,20 +52,20 @@ class Deck {
 class Blackjack {
     constructor(displayMessage) {
     	this.displayMessage = displayMessage;
-    	this.deck = new Deck();
-    	this.playerHand = [];
-    	this.dealerHand = [];
-    	this.gameOver = false;
-    	this.startGame();
-    	this.playerHit = this.playerHit.bind(this);
-    	this.playerStand = this.playerStand.bind(this);
+    	this.resetGame();
     }
 
-    displayMessage(message) {
-        let messageElement = document.createElement('div');
-        messageElement.innerText = message;
-        messageElement.classList.add('game-message');
-        document.getElementById('game-output').appendChild(messageElement);
+    resetGame() {
+        this.deck = new Deck();
+        this.playerHand = [];
+        this.dealerHand = [];
+        this.gameOver = false;
+        this.clearMessages();
+        this.startGame();
+    }
+
+    clearMessages() {
+        document.getElementById('game-output').innerHTML = '';
     }
 
     startGame() {
@@ -104,21 +104,16 @@ class Blackjack {
     let total = 0;
     let aces = 0;
 
-    // First pass to calculate the total and count aces
     hand.forEach(card => {
         total += card.getValue();
         if (card.rank === 'A') aces++;
     });
-
-    // Adjust for Aces if total exceeds 21
     while (total > 21 && aces > 0) {
         total -= 10;
         aces--;
     }
-
     return total;
     }
-
 
     showHands(hideDealer = false) {
     let playerImages = this.playerHand.map(card => {
