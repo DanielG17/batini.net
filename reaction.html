@@ -98,6 +98,10 @@
     	    background-color: #000;
     	    color: #00ff00;
 	    }
+        .no-hover button:hover {
+            background-color: #00ff00;
+            color: #000;
+        }
         buttonTwo {
     	    background-color: #00ff00;
     	    color: #000;
@@ -121,6 +125,10 @@
     	    background-color: #000;
     	    color: #00ff00;
 	    }
+        #timer {
+            font-size: 30px;
+            margin-top: 20px;
+        }
         .modal {
             display: none;
             position: fixed;
@@ -188,5 +196,99 @@
         </div>
     </div>
     <script src="accounts.js"></script>
+
+    <br><br><br>
+    <div class="button-container no-hover" style="display: none; justify-content: center; align-items: center; gap: 20px;" id="gameSection">
+        <button id="playButton" onclick="startGame()">Play</button>
+    </div>
+    <div id="timer" style="display: none;">00:000.00</div>
+
+    <script>
+        let playButton = document.getElementById('playButton');
+        let timerDisplay = document.getElementById('timer');
+        let startTime;
+        let stopTime;
+        let isGameActive = false;
+        let timeout;
+        let timerInterval;
+        let isBlue = false;
+
+        // Function to start the game
+        function startGame() {
+            if (isGameActive) {
+                // Stop the game if stop button is clicked
+                stopGame();
+            } else {
+                // Start the game
+                playButton.innerText = 'Wait for Blue';
+                isGameActive = true;
+                document.body.style.backgroundColor = '#ff0000'; // Red background while waiting
+                timerDisplay.innerText = '00:000.00';
+                
+                // Random delay before color change
+                let randomDelay = Math.floor(Math.random() * 2000) + 1000; // Between 1.5 to 4.5 seconds
+                timeout = setTimeout(function() {
+                    // Change screen to blue and update button
+                    document.body.style.backgroundColor = '#44aaff';
+                    playButton.innerText = 'Click'; // Change button text
+                    isBlue = true;
+                    startTime = performance.now(); // Start the high precision timer
+                    startTimer();
+                }, randomDelay);
+            }
+        }
+
+        // Function to format time to two digits
+        function formatTime(time) {
+            return time < 10 ? '0' + time : time;
+        }
+
+        // Function to start the timer
+        function startTimer() {
+            timerInterval = setInterval(function() {
+                let elapsedTime = performance.now() - startTime; // Elapsed time in milliseconds
+                let seconds = Math.floor(elapsedTime / 1000);
+                let milliseconds = Math.floor(elapsedTime % 1000);
+                let nanoseconds = Math.floor((elapsedTime % 1) * 100); // Nanoseconds part (for display purposes)
+                
+                // Format the timer display
+                let formattedTime = `${formatTime(seconds)}:${formatTime(milliseconds)}.${formatTime(nanoseconds)}`;
+                timerDisplay.innerText = formattedTime;
+            }, 10); // Update every 10ms
+        }
+
+        function resetGame() {
+            playButton.innerText = 'Play';
+            isGameActive = false;
+            isBlue = false;
+            document.body.style.backgroundColor = '#ffffff';
+            clearTimeout(timeout); // Clear any active timeout if the user clicked early
+        }
+
+        function stopGame() {
+            if (!isBlue) {
+                formattedTime = '00:000.00';
+                resetGame();
+                return; // Do not proceed with calculating time
+            }else{
+                stopTime = performance.now();
+                clearInterval(timerInterval); // Stop the timer
+                
+                let elapsedTime = stopTime - startTime;
+                let seconds = Math.floor(elapsedTime / 1000);
+                let milliseconds = Math.floor(elapsedTime % 1000);
+                let nanoseconds = Math.floor((elapsedTime % 1) * 100);
+                
+                // Format the final reaction time
+                let formattedTime = `${formatTime(seconds)}:${formatTime(milliseconds)}.${formatTime(nanoseconds)}`;
+                timerDisplay.innerText = formattedTime;
+
+                this.resetGame();
+            }
+        }
+    </script>
+
+    <br><br><br>
+
 </body>
 </html>
