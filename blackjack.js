@@ -177,7 +177,6 @@ class Blackjack {
         if (this.gameOver) return;
         this.playerHand.push(this.deck.deal());
         this.showHands(true);
-
         if (this.calculateHand(this.playerHand) > 21) {
             this.displayMessage("Bust! You lose.");
             this.endGame();
@@ -207,7 +206,6 @@ class Blackjack {
             this.endGame();
             return;
         }
-
         // Dealer continues to hit if they are losing and their total is less than 21
         if (dealerTotal < playerTotal) {
             this.dealerHand.push(this.deck.deal());
@@ -246,6 +244,7 @@ class Blackjack {
         this.gameOver = true;
         document.getElementById("hit-button").style.display = "none";
         document.getElementById("stand-button").style.display = "none";
+        document.getElementById("start-button").disabled = false;
     }
 }
 
