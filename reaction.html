@@ -165,7 +165,7 @@
         @media (max-width: 768px) {
             button {
                 width: 90%;
-                max-width: 166px;
+                max-width: 180px;
                 height: 50px;
                 font-size: 18px;
                 padding: 12px 20px;
@@ -226,7 +226,7 @@
                 timerDisplay.innerText = '00:000.00';
                 
                 // Random delay before color change
-                let randomDelay = Math.floor(Math.random() * 2000) + 1000; // Between 1.5 to 4.5 seconds
+                let randomDelay = Math.floor(Math.random() * 4000) + 1000;
                 timeout = setTimeout(function() {
                     // Change screen to blue and update button
                     document.body.style.backgroundColor = '#44aaff';
@@ -239,8 +239,9 @@
         }
 
         // Function to format time to two digits
-        function formatTime(time) {
-            return time < 10 ? '0' + time : time;
+        // Function to format time to always display two digits for seconds, three for milliseconds, and two for nanoseconds
+        function formatTime(time, digits) {
+            return time.toString().padStart(digits, '0');
         }
 
         // Function to start the timer
@@ -252,7 +253,7 @@
                 let nanoseconds = Math.floor((elapsedTime % 1) * 100); // Nanoseconds part (for display purposes)
                 
                 // Format the timer display
-                let formattedTime = `${formatTime(seconds)}:${formatTime(milliseconds)}.${formatTime(nanoseconds)}`;
+                let formattedTime = `${formatTime(seconds, 2)}:${formatTime(milliseconds, 3)}.${formatTime(nanoseconds, 2)}`;
                 timerDisplay.innerText = formattedTime;
             }, 10); // Update every 10ms
         }
