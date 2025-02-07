@@ -75,6 +75,26 @@
             justify-content: center;
             margin: 20px 0;
         }
+        .leaderboard-container {
+            position: absolute;
+            top: 150px;
+            left: 25px;
+            width: 300px;
+            text-align: left;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 5px solid #00ff00;
+            border-radius: 5px;
+    	}
+    	.leaderboard-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+    	}
+    	.leaderboard {
+            font-size: 18px;
+            color: #333;
+    	}
         button {
     	    background-color: #00ff00;
     	    color: #000;
@@ -148,12 +168,6 @@
             text-align: center;
             width: 300px;
         }
-        .close {
-            position: absolute;
-            right: 615px;
-            font-size: 30px;
-            cursor: pointer;
-        }
         .modal-content input {
             display: block;
             width: 90%;
@@ -184,6 +198,15 @@
     	</nav>
     </header>
 
+    <div class="leaderboard-container">
+        <div class="leaderboard-title">Best Times:</div>
+        <div class="leaderboard"></div>
+        <p>1. 00.010.00 - John_LLTK</p>
+        <p>2. 00.019.39 - Matteo</p>
+        <p>3. 00.043.80 - Kennybat1n1</p>
+        <p>4. 00.054.09 - gabriel_bokli</p>
+    </div>
+
     <br>
     <div class="button-container" style="display: flex; justify-content: center; align-items: center; gap: 20px;">
         <button onclick="playAsGuest()">Play as Guest</button>
@@ -204,6 +227,17 @@
     </div>
     <div id="timer" style="display: none;">00:000.00</div>
     <div id="gameMessage" style="color: red; font-size: 20px;"></div>
+
+    <div id="greatTime" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeGreatTime()">&times;</span>
+            <h2>You reacted in less than 0.1 of a second!</h2>
+            <p>If this time beats your personal record, you can send a screenshot of this message to Daniel Grech to feature on the leaderboard</p>
+            <h2></h2>
+            <button onclick="closeGreatTime()" style="background-color: #00ff00; color: #000; padding: 14px 25px; font-size: 18px; font-weight: bold; border-radius: 5px; cursor: pointer; width: 50%; transition: background-color 0.3s, color 0.3s; margin: 0 auto;">Continue</button>
+        </div>
+    </div>
+    
 
     <script>
         let playButton = document.getElementById('playButton');
@@ -291,7 +325,16 @@
                 timerDisplay.innerText = formattedTime;
 
                 this.resetGame();
+
+                if (elapsedTime < 1000) {
+                    document.getElementById("greatTime").style.display = "flex";
+                    document.querySelector("#greatTime h2:last-of-type").innerText = `${loggedInUser}: ${formattedTime}`;
+                }
             }
+        }
+
+        function closeGreatTime() {
+            document.getElementById("greatTime").style.display = "none";
         }
     </script>
 

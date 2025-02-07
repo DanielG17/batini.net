@@ -30,16 +30,18 @@ function closeLogin() {
     document.getElementById("loginModal").style.display = "none";
 }
 
-    function validateLogin() {
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
+let loggedInUser = null;
+function validateLogin() {
+const username = document.getElementById("username").value;
+const password = document.getElementById("password").value;
 
-    // Check if the entered username & password match any user
-    const user = users.find(user => user.username === username && user.password === password);
-    const loginContent = document.getElementById("loginContent");
+// Check if the entered username & password match any user
+const user = users.find(user => user.username === username && user.password === password);
+const loginContent = document.getElementById("loginContent");
 
     if (user) {
         // Successful login
+        loggedInUser = user.username;
         loginContent.innerHTML = `
             <h2>Welcome, ${user.name}!</h2>
             <button onclick="showGameSection()" style="background-color: #00ff00; color: #000; padding: 14px 25px; font-size: 18px; font-weight: bold; border-radius: 5px; cursor: pointer; width: 50%; transition: background-color 0.3s, color 0.3s; margin: 0 auto;">Continue</button>
