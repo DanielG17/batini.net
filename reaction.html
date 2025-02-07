@@ -75,26 +75,41 @@
             justify-content: center;
             margin: 20px 0;
         }
+        .container {
+            display: flex;
+            justify-content: center;  /* Centers the content horizontally */
+        }
         .leaderboard-container {
-            position: flex;
-            top: 150px;
-            left: 25px;
             width: 300px;
-            text-align: left;
             background-color: #f9f9f9;
             padding: 10px;
             border: 5px solid #00ff00;
             border-radius: 5px;
-    	}
-    	.leaderboard-title {
-            font-size: 22px;
-            font-weight: bold;
+            font-family: Arial, sans-serif;
+        }
+        .leaderboard-container h2 {
+            color: goldenrod;
             margin-bottom: 10px;
-    	}
-    	.leaderboard {
-            font-size: 18px;
-            color: #333;
-    	}
+        }
+        .leaderboard-container p {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        .rank {
+            width: 20px;
+            text-align: right;
+            font-weight: bold;
+        }
+        .time {
+            width: 80px;
+            text-align: right;
+        }
+        .user {
+            flex-grow: 1;
+            text-align: left;
+        }
         button {
     	    background-color: #00ff00;
     	    color: #000;
@@ -197,15 +212,6 @@
 	        <a href="games.html">Games</a>
     	</nav>
     </header>
-
-    <div class="leaderboard-container">
-        <div class="leaderboard-title">Best Times:</div>
-        <div class="leaderboard"></div>
-        <p>1. 00.010.00 - John_LLTK</p>
-        <p>2. 00.019.39 - Matteo</p>
-        <p>3. 00.043.80 - Kennybat1n1</p>
-        <p>4. 00.054.09 - gabriel_bokli</p>
-    </div>
 
     <br>
     <div class="button-container" style="display: flex; justify-content: center; align-items: center; gap: 20px;">
@@ -338,7 +344,15 @@
         }
     </script>
 
-    <br><br><br>
-
+    <br><br><br><br><br>
+    <div class="container">
+        <div class="leaderboard-container">
+            <h2>Best Times:</h2>
+            <p><span class="rank">1.</span> <span class="time">00.010.00</span> <span class="user">-  John_LLTK</span></p>
+            <p><span class="rank">2.</span> <span class="time">00.019.39</span> <span class="user">-  Matteo</span></p>
+            <p><span class="rank">3.</span> <span class="time">00.043.80</span> <span class="user">-  Kennybat1n1</span></p>
+            <p><span class="rank">4.</span> <span class="time">00.054.09</span> <span class="user">-  gabriel_bokli</span></p>
+        </div>
+    </div>
 </body>
 </html>
