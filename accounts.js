@@ -46,6 +46,7 @@ const loginContent = document.getElementById("loginContent");
             <h2>Welcome, ${user.name}!</h2>
             <button onclick="showGameSection()" style="background-color: #00ff00; color: #000; padding: 14px 25px; font-size: 18px; font-weight: bold; border-radius: 5px; cursor: pointer; width: 50%; transition: background-color 0.3s, color 0.3s; margin: 0 auto;">Continue</button>
         `;
+
     } else {
         // Failed login
         loginContent.innerHTML = `
@@ -65,6 +66,7 @@ function showGameSection() {
 
 // Play as Guest - shows the game section immediately
 function playAsGuest() {
+    loggedInUser = null;
     document.getElementById("gameSection").style.display = "flex";
     document.getElementById("timer").style.display = "block";
 }
