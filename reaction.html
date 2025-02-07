@@ -332,7 +332,7 @@
 
                 this.resetGame();
 
-                if (elapsedTime < 1000) {
+                if (elapsedTime < 100) {
                     document.getElementById("greatTime").style.display = "flex";
                     document.querySelector("#greatTime h2:last-of-type").innerText = `${loggedInUser}: ${formattedTime}`;
                 }
