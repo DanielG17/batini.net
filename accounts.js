@@ -1,8 +1,13 @@
 // User data
 const users = [
-    { name: "Daniel Grech", username: "danielg_17", password: "apples" },
-    { name: "John Gatt", username: "john_Majna", password: "bananas" },
-    { name: "Daniel Vella", username: "danielosaurus", password: "murica" }
+    { name: "Daniel Grech", username: "dan_grech", password: "lejber" },
+    { name: "John Gatt", username: "John_LLTK", password: "rutartsinimmaawqal" },
+    { name: "Daniel Vella", username: "danielrix08", password: "Iamgay17" },
+    { name: "Matteo Camilleri", username: "Matteo", password: "12bucklemyshoe" },
+    { name: "Kenneth Micallef", username: "Kennybat1n1", password: "abbatinikjddm" },
+    { name: "Jake Sacco", username: "jake_sax", password: "kondoljanzi" },
+    { name: "Gabriel Xerri", username: "gabriel_bokli", password: "gabriel06" },
+    { name: "Kieran Calleja", username: "kieran_kiskis", password: "kiskis1908" }
 ];
 
 function login() {

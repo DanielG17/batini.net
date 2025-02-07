@@ -112,7 +112,7 @@
     	    border-radius: 5px;
     	    cursor: pointer;
     	    transition: background-color 0.3s, color 0.3s;
-	        width: 170px;
+	        width: 200px;
 	        margin-top: 10px;
 	        margin-right: 50px;
 	        margin-left: 50px;
@@ -165,7 +165,7 @@
         @media (max-width: 768px) {
             button {
                 width: 90%;
-                max-width: 180px;
+                max-width: 184px;
                 height: 50px;
                 font-size: 18px;
                 padding: 12px 20px;
@@ -198,10 +198,12 @@
     <script src="accounts.js"></script>
 
     <br><br><br>
+    <h3>Press Play to start. Click again when the screen goes blue</h3>
     <div class="button-container no-hover" style="display: none; justify-content: center; align-items: center; gap: 20px;" id="gameSection">
         <button id="playButton" onclick="startGame()">Play</button>
     </div>
     <div id="timer" style="display: none;">00:000.00</div>
+    <div id="gameMessage" style="color: red; font-size: 20px;"></div>
 
     <script>
         let playButton = document.getElementById('playButton');
@@ -220,6 +222,7 @@
                 stopGame();
             } else {
                 // Start the game
+                document.getElementById("gameMessage").innerHTML = '';
                 playButton.innerText = 'Wait for Blue';
                 isGameActive = true;
                 document.body.style.backgroundColor = '#ff0000'; // Red background while waiting
@@ -230,7 +233,7 @@
                 timeout = setTimeout(function() {
                     // Change screen to blue and update button
                     document.body.style.backgroundColor = '#44aaff';
-                    playButton.innerText = 'Click'; // Change button text
+                    playButton.innerText = 'Click Here'; // Change button text
                     isBlue = true;
                     startTime = performance.now(); // Start the high precision timer
                     startTimer();
@@ -266,6 +269,7 @@
 
         function stopGame() {
             if (!isBlue) {
+                document.getElementById("gameMessage").innerHTML = "<br><strong>Too soon!</strong>";
                 formattedTime = '00:000.00';
                 resetGame();
                 return; // Do not proceed with calculating time

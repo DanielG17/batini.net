@@ -57,8 +57,8 @@ class Blackjack {
 
     resetGame() {
         this.deck = new Deck();
-        this.playerHand = [];
         this.dealerHand = [];
+        this.playerHand = [];
         this.gameOver = false;
         this.clearMessages();
         this.startGame();
@@ -82,25 +82,25 @@ class Blackjack {
         }, 3200);
         
         setTimeout(() => {
-            this.playerHand.push(this.deck.deal());
-            this.showHands(false);
-        }, delay);
-        delay += 800;
-    
-        setTimeout(() => {
-            this.playerHand.push(this.deck.deal());
+            this.dealerHand.push(this.deck.deal());
             this.showHands(false);
         }, delay);
         delay += 800;
     
         setTimeout(() => {
             this.dealerHand.push(this.deck.deal());
+            this.showHands(false);
+        }, delay);
+        delay += 800;
+    
+        setTimeout(() => {
+            this.playerHand.push(this.deck.deal());
             this.showHands(true);
         }, delay);
         delay += 800;
 
         setTimeout(() => {
-            this.dealerHand.push(this.deck.deal());
+            this.playerHand.push(this.deck.deal());
             this.showHands(true);
         }, delay);
         delay += 800;
@@ -122,6 +122,25 @@ class Blackjack {
     }
 
     showHands(hideDealer = false) {
+    
+    let dealerImages = this.dealerHand.map((card, index) => {
+        let img = document.createElement('img');
+    
+        if (hideDealer && index === 1) {
+            img.src = 'cards/back.jpeg';
+            img.style.borderRadius = '12px';
+            img.alt = 'Hidden Card';
+        } else {
+            img.src = `cards/${card.getImagePath()}`;
+            img.alt = card.toString();
+        }
+    
+        img.style.width = '90px'; 
+        img.style.marginBottom = '10px';
+        img.classList.add('dealer-card'); 
+        return img;
+    });
+
     let playerImages = this.playerHand.map(card => {
         let img = document.createElement('img');
         img.src = `cards/${card.getImagePath()}`;
@@ -132,39 +151,10 @@ class Blackjack {
         return img;
     });
 
-    let dealerImages = this.dealerHand.map((card, index) => {
-        let img = document.createElement('img');
-
-        if (hideDealer && index === 1) {
-            img.src = 'cards/back.jpeg';
-            img.style.borderRadius = '12px';
-            img.alt = 'Hidden Card';
-        } else {
-            img.src = `cards/${card.getImagePath()}`;
-            img.alt = card.toString();
-        }
-
-        img.style.width = '90px'; 
-        img.style.marginBottom = '10px';
-        img.classList.add('dealer-card'); 
-        return img;
-    });
-
-
     // Clear the previous content
     const gameOutput = document.getElementById('game-output');
     gameOutput.innerHTML = '';
     gameOutput.innerHTML += `<br>`; 
-
-    // Add labels and images for player and dealer to the output container
-    let playerLabel = document.createElement('div');
-    playerLabel.innerText = 'Your Hand:';
-    playerLabel.classList.add('hand-title');
-    gameOutput.appendChild(playerLabel);
-
-    playerImages.forEach(img => gameOutput.appendChild(img));
-
-    gameOutput.innerHTML += `<br>`;
 
     let dealerLabel = document.createElement('div');
     dealerLabel.innerText = 'Dealer\'s Hand:';
@@ -173,6 +163,16 @@ class Blackjack {
 
     dealerImages.forEach(img => gameOutput.appendChild(img));
     gameOutput.innerHTML += `<br>`;
+
+    gameOutput.innerHTML += `<br>`;
+
+    // Add labels and images for player and dealer to the output container
+    let playerLabel = document.createElement('div');
+    playerLabel.innerText = 'Your Hand:';
+    playerLabel.classList.add('hand-title');
+    gameOutput.appendChild(playerLabel);
+
+    playerImages.forEach(img => gameOutput.appendChild(img));
     }
 
     playerHit() {
