@@ -89,7 +89,7 @@ class Blackjack {
     
         setTimeout(() => {
             this.dealerHand.push(this.deck.deal());
-            this.showHands(false);
+            this.showHands(true);
         }, delay);
         delay += 800;
     
