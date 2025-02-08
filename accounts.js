@@ -1,6 +1,6 @@
 // User data
 const users = [
-    { name: "Daniel Grech", username: "dan_grech", password: "lejber" },
+    { name: "Daniel Grech", username: "dan_grec", password: "lejber" },
     { name: "John Gatt", username: "John_LLTK", password: "rutartsinimmaawqal" },
     { name: "Daniel Vella", username: "danielrix08", password: "Iamgay17" },
     { name: "Matteo Camilleri", username: "Matteo", password: "12bucklemyshoe" },
