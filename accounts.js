@@ -9,7 +9,7 @@ const users = [
     { name: "Gabriel Xerri", username: "gabriel_bokli", password: "gabriel06" },
     { name: "Kieran Calleja", username: "kieran_kiskis", password: "kiskis1908" },
     { name: "Denzil Bugeja", username: "denzil", password: "denzil21" },
-    { name: "Keith Sultana", username: "keithsultana16", password: "ticklmeuncle" }
+    { name: "Keith Sultana", username: "keithsultana16", password: "ticklemeuncle" }
 ];
 
 function login() {
