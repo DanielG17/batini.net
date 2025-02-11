@@ -127,8 +127,7 @@
     	    color: #00ff00;
 	    }
         #game-button {
-    	    background-color: #00ff00;
-    	    color: #000;
+    	    color: white;
     	    padding: 14px 25px;
     	    font-size: 18px;
     	    font-weight: bold;
@@ -144,7 +143,7 @@
             height: 70px;
         }
         #game-button:hover {
-    	    border: 8px solid red;
+    	    border: 8px solid #00ff00;
             border-radius: 5px;
 	    }
         .modal {
@@ -256,7 +255,7 @@
             { home: "West Ham United", away: "Brentford" },
             { home: "Crystal Palace", away: "Everton" },
             { home: "Liverpool", away: "Wolves" },
-            { home: "Tottenham", away: "Manchester United" }
+            { home: "Tottenham", away: "Manchester United" },
         ];
 
         function showGameSection() {
@@ -273,7 +272,7 @@
                     <br>
                     <h3><strong>${match.home} vs ${match.away}</strong></h3>
                     <button id="game-button" onclick="predict(${index}, '${homeClub.code}')" style="background-color: ${homeClub.color}; color: white;">${homeClub.code}</button>
-                    <button id="game-button" onclick="predict(${index}, 'DRAW')">DRAW</button>
+                    <button id="game-button" onclick="predict(${index}, 'DRAW')" style="background-color: black;">DRAW</button>
                     <button id="game-button" onclick="predict(${index}, '${awayClub.code}')" style="background-color: ${awayClub.color}; color: white;">${awayClub.code}</button>
                     <br><br>
                 `;
@@ -281,22 +280,53 @@
             });
         }
 
-        let predictions = {}; // Store selected predictions
+        const userPredictions = {}; // Store user choices
 
-        function predict(index, choice) {
-            predictions[index] = choice; // Store the choice
+        function predict(matchIndex, selectedTeam) {
+            // Store user's selection
+            userPredictions[matchIndex] = selectedTeam;
 
-            // Remove red border from all buttons in the match
-            const matchDiv = document.getElementById(`match-${index}`);
-            matchDiv.querySelectorAll("button").forEach(btn => {
-                btn.style.border = "2px solid #00ff00"; // Reset to default
+            // Get all buttons for the current match
+            const matchDiv = document.getElementById(`match-${matchIndex}`);
+            const buttons = matchDiv.querySelectorAll("button");
+
+            // Reset all buttons (remove red border)
+            buttons.forEach(button => {
+                button.style.border = "0.1px solid transparent"; // Reset border
             });
 
             // Apply red border to the selected button
-            const selectedButton = document.getElementById(`btn-${index}-${choice}`);
+            const selectedButton = [...buttons].find(btn => btn.dataset.team === selectedTeam);
             if (selectedButton) {
-                selectedButton.style.border = "4px solid red";
+                selectedButton.style.border = "8px solid #00ff00";s
             }
+        }
+
+        // Function to display the fixtures with selectable buttons
+        function showGameSection() {
+            document.getElementById("gameSection").style.display = "block";
+            document.getElementById("fixturesContainer").innerHTML = "";
+            closeLogin(); // Close the login modal after continuing
+
+            fixtures.forEach((match, index) => {
+                const homeClub = clubs[match.home];
+                const awayClub = clubs[match.away];
+
+                const matchDiv = document.createElement("div");
+                matchDiv.id = `match-${index}`; // Assign an ID for easy reference
+                matchDiv.style.marginBottom = "15px";
+
+                matchDiv.innerHTML = `
+                    <br>
+                    <h3><strong>${match.home} vs ${match.away}</strong></h3>
+                    <button id="game-button" data-team="${homeClub.code}" onclick="predict(${index}, '${homeClub.code}')" style="background-color: ${homeClub.color}; color: white;">${homeClub.code}</button>
+                    <button id="game-button" data-team="DRAW" onclick="predict(${index}, 'DRAW')" style="background-color: black;">DRAW</button>
+                    <button id="game-button" data-team="${awayClub.code}" onclick="predict(${index}, '${awayClub.code}')" style="background-color: ${awayClub.color}; color: white;">${awayClub.code}</button>
+                    <br><br>
+                `;
+
+                document.getElementById("fixturesContainer").appendChild(matchDiv);
+            });
         }
     </script>
 </body>
