@@ -34,11 +34,11 @@
             text-decoration: none;
             display: block;
             text-align: center;
-	    transition: background-color 0.3s, color 0.3s;
+	        transition: background-color 0.3s, color 0.3s;
         }
         nav a:hover {
             background-color: #00ff00;
-	    color: #000000;
+	        color: #000000;
         }
         .images-container {
             display: flex;
@@ -129,7 +129,12 @@
     	    line-height: normal;
             height: 70px;
         }
-        button:hover {
+        button:disabled {
+    	    background-color: #d3d3d3;
+    	    border: 2px solid #a9a9a9;
+    	    cursor: not-allowed;
+	    }
+	    button:hover {
     	    background-color: #000;
     	    color: #00ff00;
 	    }
@@ -348,16 +353,16 @@
     <div class="container">
         <div class="leaderboard-container">
             <h2>Best Times:</h2>
-            <p><span class="rank">1.</span> <span class="time">00.003.00</span> <span class="user">-  keithsultana16</span></p>
-            <p><span class="rank">2.</span> <span class="time">00.003.19</span> <span class="user">-  Kennybat1n1</span></p>
-            <p><span class="rank">3.</span> <span class="time">00.004.00</span> <span class="user">-  Matteo</span></p>
-            <p><span class="rank">3.</span> <span class="time">00.004.00</span> <span class="user">-  danielrix08</span></p>
-            <p><span class="rank">5.</span> <span class="time">00.005.00</span> <span class="user">-  kieran_kiskis</span></p>
-            <p><span class="rank">6.</span> <span class="time">00.008.00</span> <span class="user">-  danielrix08</span></p>
-            <p><span class="rank">7.</span> <span class="time">00.009.00</span> <span class="user">-  John_LLTK</span></p>
-            <p><span class="rank">8.</span> <span class="time">00.012.69</span> <span class="user">-  dan_grec</span></p>
-            <p><span class="rank">9.</span> <span class="time">00.015.79</span> <span class="user">-  Matteo</span></p>
-            <p><span class="rank">10.</span> <span class="time">00.017.00</span> <span class="user">-  Matteo</span></p>
+            <p><span class="rank">1.</span> <span class="time">00.001.00</span> <span class="user">-  dan_grec</span></p>
+            <p><span class="rank">2.</span> <span class="time">00.003.00</span> <span class="user">-  keithsultana16</span></p>
+            <p><span class="rank">3.</span> <span class="time">00.003.19</span> <span class="user">-  Kennybat1n1</span></p>
+            <p><span class="rank">4.</span> <span class="time">00.004.00</span> <span class="user">-  Matteo</span></p>
+            <p><span class="rank">4.</span> <span class="time">00.004.00</span> <span class="user">-  danielrix08</span></p>
+            <p><span class="rank">6.</span> <span class="time">00.005.00</span> <span class="user">-  kieran_kiskis</span></p>
+            <p><span class="rank">7.</span> <span class="time">00.008.00</span> <span class="user">-  danielrix08</span></p>
+            <p><span class="rank">8.</span> <span class="time">00.009.00</span> <span class="user">-  John_LLTK</span></p>
+            <p><span class="rank">9.</span> <span class="time">00.012.69</span> <span class="user">-  dan_grec</span></p>
+            <p><span class="rank">10.</span> <span class="time">00.015.79</span> <span class="user">-  Matteo</span></p>
         </div>
     </div>
 </body>

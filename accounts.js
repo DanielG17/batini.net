@@ -1,6 +1,7 @@
 // User data
 const users = [
     { name: "Daniel Grech", username: "dan_grec", password: "lejber" },
+    { name: "1", username: "1", password: "1" },
     { name: "John Gatt", username: "John_LLTK", password: "rutartsinimmaawqal" },
     { name: "Daniel Vella", username: "danielrix08", password: "Iamgay17" },
     { name: "Matteo Camilleri", username: "Matteo", password: "12bucklemyshoe" },
@@ -43,6 +44,8 @@ const loginContent = document.getElementById("loginContent");
 
     if (user) {
         // Successful login
+        document.querySelector("button[onclick='login()']").disabled = true;
+        document.querySelector("button[onclick='login()']").innerText = "Logged In";
         loggedInUser = user.username;
         loginContent.innerHTML = `
             <h2>Welcome, ${user.name}!</h2>
@@ -51,6 +54,8 @@ const loginContent = document.getElementById("loginContent");
 
     } else {
         // Failed login
+        document.querySelector("button[onclick='login()']").disabled = false;
+        document.querySelector("button[onclick='login()']").innerText = "Log In";
         loginContent.innerHTML = `
             <h2>No Account Found.</h2>
             <button onclick="login()" style="background-color: #00ff00; color: #fff; padding: 14px 25px; font-size: 18px; font-weight: bold; border-radius: 5px; cursor: pointer; width: 50%; margin-top: 10px; transition: background-color 0.3s, color 0.3s; margin: 0 auto; margin-bottom: 10px;">Try Again</button>
@@ -69,6 +74,8 @@ function showGameSection() {
 // Play as Guest - shows the game section immediately
 function playAsGuest() {
     loggedInUser = null;
+    document.querySelector("button[onclick='login()']").disabled = false;
+    document.querySelector("button[onclick='login()']").innerText = "Log In";
     document.getElementById("gameSection").style.display = "flex";
     document.getElementById("timer").style.display = "block";
 }
