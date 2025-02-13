@@ -99,6 +99,10 @@
     	    border: 2px solid #a9a9a9;
     	    cursor: not-allowed;
 	    }
+        button:hover:disabled {
+            background-color: #557555;
+            color: black;
+        }
 	    button:hover {
     	    background-color: #000;
     	    color: #00ff00;
@@ -128,9 +132,11 @@
 	    }
         #game-button {
     	    color: white;
+            border: 0.1px solid transparent;
     	    padding: 14px 25px;
     	    font-size: 18px;
     	    font-weight: bold;
+            border-radius: 5px;
     	    cursor: pointer;
     	    transition: background-color 0.3s, color 0.3s;
 	        width: 170px;
@@ -155,6 +161,7 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
             justify-content: center;
             align-items: center;
         }
@@ -220,30 +227,43 @@
 
     <div id="gameSection" style="display: none; text-align: center; margin-top: 20px;">
         <div id="fixturesContainer"></div>
+        <br>
+        <div class="button-container" style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+            <button id="submit-button" onclick="submit()">Submit</button>
+        </div>
+    </div>
+
+    <div id="submit" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center;">
+        <div class="modal-content" style="background: white; padding: 20px; border-radius: 10px; text-align: center; width: 300px;">
+            <h2>How's your luck?</h2>
+            <p>Send a screenshot of this code to Daniel Grech to register your predictions</p>
+            <h2></h2>
+            <button onclick="closeSubmit()" style="background-color: #00ff00; color: #000; padding: 14px 25px; font-size: 18px; font-weight: bold; border-radius: 5px; cursor: pointer; width: 50%; transition: background-color 0.3s, color 0.3s; margin: 0 auto;">Continue</button>
+        </div>
     </div>
 
     <script>
         const clubs = {
-            "Manchester City": { code: "MCI", color: "#6CABDD" },
-            "Manchester United": { code: "MUN", color: "#DA291C" },
-            "Liverpool": { code: "LIV", color: "#C8102E" },
-            "Arsenal": { code: "ARS", color: "#EF0107" },
-            "Chelsea": { code: "CHE", color: "#001489" },
-            "Tottenham": { code: "TOT", color: "#132257" },
-            "Aston Villa": { code: "AVL", color: "#811331" },
-            "Newcastle United": { code: "NEW", color: "#000000" },
-            "Everton": { code: "EVE", color: "#003399" },
-            "West Ham United": { code: "WHU", color: "#7A263A" },
-            "Brighton": { code: "BHA", color: "#0057B8" },
-            "Nottingham Forest": { code: "NFO", color: "#DD0000" },
-            "Fulham": { code: "FUL", color: "#000000" },
-            "Crystal Palace": { code: "CRY", color: "#1B458F" },
-            "Wolves": { code: "WOL", color: "#FDB913" },
-            "Leicester City": { code: "LEI", color: "#0036A7" },
-            "Bournemouth": { code: "BOU", color: "#DA291C" },
-            "Brentford": { code: "BRE", color: "#E30613" },
-            "Ipswich Town": { code: "IPS", color: "#005599" },
-            "Southampton": { code: "SOU", color: "#D71920" }
+            "Manchester City": { code: "MCI", color: "#6CABDD", short: "C" },
+            "Manchester United": { code: "MUN", color: "#DA291C", short: "U" },
+            "Liverpool": { code: "LIV", color: "#C8102E", short: "L" },
+            "Arsenal": { code: "ARS", color: "#EF0107", short: "A" },
+            "Chelsea": { code: "CHE", color: "#001489", short: "H" },
+            "Tottenham": { code: "TOT", color: "#132257", short: "T" },
+            "Aston Villa": { code: "AVL", color: "#811331", short: "V" },
+            "Newcastle United": { code: "NEW", color: "#000000", short: "N" },
+            "Everton": { code: "EVE", color: "#003399", short: "E" },
+            "West Ham United": { code: "WHU", color: "#7A263A", short: "W" },
+            "Brighton": { code: "BHA", color: "#0057B8", short: "B" },
+            "Nottingham Forest": { code: "NFO", color: "#DD0000", short: "F" },
+            "Fulham": { code: "FUL", color: "#000000", short: "M" },
+            "Crystal Palace": { code: "CRY", color: "#1B458F", short: "P" },
+            "Wolves": { code: "WOL", color: "#FDB913", short: "O" },
+            "Leicester City": { code: "LEI", color: "#0036A7", short: "Y" },
+            "Bournemouth": { code: "BOU", color: "#DA291C", short: "R" },
+            "Brentford": { code: "BRE", color: "#E30613", short: "D" },
+            "Ipswich Town": { code: "IPS", color: "#005599", short: "I" },
+            "Southampton": { code: "SOU", color: "#D71920", short: "S" }
         };
         const fixtures = [
             { home: "Brighton", away: "Chelsea" },
@@ -261,72 +281,63 @@
         function showGameSection() {
             document.getElementById("gameSection").style.display = "block";
             document.getElementById("fixturesContainer").innerHTML = "";
-            closeLogin(); // Close the login modal after continuing
-
+            closeLogin();
+            document.getElementById("submit-button").disabled = true;
             fixtures.forEach((match, index) => {
                 const homeClub = clubs[match.home];
                 const awayClub = clubs[match.away];
-                const matchDiv = document.createElement("div");
-                matchDiv.style.marginBottom = "15px";
-                matchDiv.innerHTML = `
-                    <br>
-                    <h3><strong>${match.home} vs ${match.away}</strong></h3>
-                    <button id="game-button" onclick="predict(${index}, '${homeClub.code}')" style="background-color: ${homeClub.color}; color: white;">${homeClub.code}</button>
-                    <button id="game-button" onclick="predict(${index}, 'DRAW')" style="background-color: black;">DRAW</button>
-                    <button id="game-button" onclick="predict(${index}, '${awayClub.code}')" style="background-color: ${awayClub.color}; color: white;">${awayClub.code}</button>
-                    <br><br>
-                `;
-                document.getElementById("fixturesContainer").appendChild(matchDiv);
-            });
-        }
-
-        const userPredictions = {}; // Store user choices
-
-        function predict(matchIndex, selectedTeam) {
-            // Store user's selection
-            userPredictions[matchIndex] = selectedTeam;
-
-            // Get all buttons for the current match
-            const matchDiv = document.getElementById(`match-${matchIndex}`);
-            const buttons = matchDiv.querySelectorAll("button");
-
-            // Reset all buttons (remove red border)
-            buttons.forEach(button => {
-                button.style.border = "0.1px solid transparent"; // Reset border
-            });
-
-            // Apply red border to the selected button
-            const selectedButton = [...buttons].find(btn => btn.dataset.team === selectedTeam);
-            if (selectedButton) {
-                selectedButton.style.border = "8px solid #00ff00";s
-            }
-        }
-
-        // Function to display the fixtures with selectable buttons
-        function showGameSection() {
-            document.getElementById("gameSection").style.display = "block";
-            document.getElementById("fixturesContainer").innerHTML = "";
-            closeLogin(); // Close the login modal after continuing
-
-            fixtures.forEach((match, index) => {
-                const homeClub = clubs[match.home];
-                const awayClub = clubs[match.away];
-
                 const matchDiv = document.createElement("div");
                 matchDiv.id = `match-${index}`; // Assign an ID for easy reference
                 matchDiv.style.marginBottom = "15px";
-
                 matchDiv.innerHTML = `
                     <br>
                     <h3><strong>${match.home} vs ${match.away}</strong></h3>
-                    <button id="game-button" data-team="${homeClub.code}" onclick="predict(${index}, '${homeClub.code}')" style="background-color: ${homeClub.color}; color: white;">${homeClub.code}</button>
-                    <button id="game-button" data-team="DRAW" onclick="predict(${index}, 'DRAW')" style="background-color: black;">DRAW</button>
-                    <button id="game-button" data-team="${awayClub.code}" onclick="predict(${index}, '${awayClub.code}')" style="background-color: ${awayClub.color}; color: white;">${awayClub.code}</button>
+                    <button id="game-button" data-match="${index}" data-team="${homeClub.code}" onclick="predict(${index}, '${homeClub.code}')" style="background-color: ${homeClub.color}; color: white;">${homeClub.code}</button>
+                    <button id="game-button" data-match="${index}" data-team="DRAW" onclick="predict(${index}, 'DRAW')" style="background-color: #ff5500;">DRAW</button>
+                    <button id="game-button" data-match="${index}" data-team="${awayClub.code}" onclick="predict(${index}, '${awayClub.code}')" style="background-color: ${awayClub.color}; color: white;">${awayClub.code}</button>
                     <br><br>
                 `;
-
                 document.getElementById("fixturesContainer").appendChild(matchDiv);
             });
+        }
+
+        const userPredictions = {};
+        let predictions = "";
+
+        function predict(matchIndex, selectedTeam) {
+            userPredictions[matchIndex] = selectedTeam;
+            const matchDiv = document.getElementById(`match-${matchIndex}`);
+            const buttons = matchDiv.querySelectorAll("button");
+            buttons.forEach(button => {
+                button.style.border = "0.01px solid transparent"; // Reset border
+            });
+
+            const selectedButton = [...buttons].find(btn => btn.dataset.team === selectedTeam);
+            if (selectedButton) {
+                selectedButton.style.border = "8px solid #00ff00"; // Selected button border
+            }
+
+            if (selectedTeam !== "DRAW") {
+                const clubShortCode = clubs[Object.keys(clubs).find(club => clubs[club].code === selectedTeam)].short;
+                predictions += clubShortCode;
+            } else {
+                predictions += "D"; 
+            }
+
+            const totalPredictions = Object.keys(userPredictions).length;
+            if (totalPredictions === 10) {
+                document.getElementById("submit-button").disabled = false;
+                document.querySelector("#submit h2:last-of-type").innerText = `${loggedInUser}: ${predictions}`;
+            }
+        }
+
+        function submit() {
+            document.getElementById("submit").style.display = "flex";
+        }
+
+        function closeSubmit() {
+            document.getElementById("submit").style.display = "none";
+            document.getElementById("submit-button").disabled = true;
         }
     </script>
 </body>
