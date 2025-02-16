@@ -223,7 +223,7 @@
         </div>
     </div>
     <script src="accounts.js"></script>
-    <h2><br>Matchday 25 PREDICTIONS</h2>
+    <h2><br>Matchday 26 PREDICTIONS</h2>
 
     <div id="gameSection" style="display: none; text-align: center; margin-top: 20px;">
         <div id="fixturesContainer"></div>
@@ -259,31 +259,31 @@
             "Chelsea": { code: "CHE", color: "#001489", short: "H" },
             "Tottenham": { code: "TOT", color: "#132257", short: "T" },
             "Aston Villa": { code: "AVL", color: "#811331", short: "V" },
-            "Newcastle United": { code: "NEW", color: "#000000", short: "N" },
+            "Newcastle": { code: "NEW", color: "#000000", short: "N" },
             "Everton": { code: "EVE", color: "#003399", short: "E" },
-            "West Ham United": { code: "WHU", color: "#7A263A", short: "W" },
+            "West Ham": { code: "WHU", color: "#7A263A", short: "W" },
             "Brighton": { code: "BHA", color: "#0057B8", short: "B" },
             "Nottingham Forest": { code: "NFO", color: "#DD0000", short: "F" },
             "Fulham": { code: "FUL", color: "#000000", short: "M" },
             "Crystal Palace": { code: "CRY", color: "#1B458F", short: "P" },
             "Wolves": { code: "WOL", color: "#FDB913", short: "O" },
-            "Leicester City": { code: "LEI", color: "#0036A7", short: "Y" },
+            "Leicester": { code: "LEI", color: "#0036A7", short: "Y" },
             "Bournemouth": { code: "BOU", color: "#DA291C", short: "R" },
             "Brentford": { code: "BRE", color: "#E30613", short: "D" },
-            "Ipswich Town": { code: "IPS", color: "#005599", short: "I" },
+            "Ipswich": { code: "IPS", color: "#005599", short: "I" },
             "Southampton": { code: "SOU", color: "#D71920", short: "S" }
         };
         const fixtures = [
-            { home: "Brighton", away: "Chelsea" },
-            { home: "Leicester City", away: "Arsenal" },
-            { home: "Aston Villa", away: "Ipswich Town" },
-            { home: "Fulham", away: "Nottingham Forest"},
-            { home: "Manchester City", away: "Newcastle United" },
-            { home: "Southampton", away: "Bournemouth" },
-            { home: "West Ham United", away: "Brentford" },
-            { home: "Crystal Palace", away: "Everton" },
-            { home: "Liverpool", away: "Wolves" },
-            { home: "Tottenham", away: "Manchester United" },
+            { home: "Leicester", away: "Brentford" },
+            { home: "Everton", away: "Manchester United" },
+            { home: "Arsenal", away: "West Ham" },
+            { home: "Bournemouth", away: "Wolves"},
+            { home: "Fulham", away: "Crystal Palace" },
+            { home: "Ipswich", away: "Tottenham" },
+            { home: "Southampton", away: "Brighton" },
+            { home: "Aston Villa", away: "Chelsea" },
+            { home: "Newcastle", away: "Nottingham Forest" },
+            { home: "Manchester City", away: "Liverpool" }
         ];
 
         function showGameSection() {
@@ -335,7 +335,7 @@
             }
 
             totalPredictions = Object.keys(userPredictions).length;
-            document.querySelector("#submit h2:last-of-type").innerText = `${loggedInUser}: ${predictions}`;
+            document.querySelector("#submit h2:last-of-type").innerText = `26: ${loggedInUser}: ${predictions}`;
         }
 
         function submit() {
