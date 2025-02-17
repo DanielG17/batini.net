@@ -327,11 +327,18 @@
             }
             matchDiv.style.backgroundColor = "white";
 
-            if (selectedTeam !== "DRAW") {
-                const clubShortCode = clubs[Object.keys(clubs).find(club => clubs[club].code === selectedTeam)].short;
-                predictions += clubShortCode;
-            } else {
-                predictions += "Z"; 
+            predictions = ""; // Reset before rebuilding
+            for (let i = 0; i < 10; i++) { // Assuming 10 fixtures
+                if (userPredictions[i]) {
+                    if (userPredictions[i] !== "DRAW") {
+                        const clubShortCode = clubs[Object.keys(clubs).find(club => clubs[club].code === userPredictions[i])].short;
+                        predictions += clubShortCode;
+                    } else {
+                        predictions += "Z";
+                    }
+                } else {
+                    predictions += "-"; // Placeholder for unselected matches
+                }
             }
 
             totalPredictions = Object.keys(userPredictions).length;
