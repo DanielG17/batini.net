@@ -13,7 +13,8 @@ const users = [
     { name: "Denzil Bugeja", username: "denzil", password: "denzil21" },
     { name: "Keith Sultana", username: "keithsultana16", password: "ticklemeuncle" },
     { name: "Kiran Camilleri", username: "Kiran_PsPs21", password: "(zzobbUGhoxx813)"},
-    { name: "David Grima", username: "david_g", password: "EmanuelOnTop"}
+    { name: "David Grima", username: "david_g", password: "EmanuelOnTop"},
+    { name: "Lucas Micallef", username: "Lucas M", password: "wwww"}
 ];
 
 function login() {
