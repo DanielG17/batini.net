@@ -14,7 +14,7 @@ const countdownTimer = setInterval(function () {
 
     // Display the result
     document.getElementById("countdown").innerHTML =
-        `${days} days, ${hours} hrs, ${minutes} min, ${seconds} sec`;
+        `${hours} hrs, ${minutes} min, ${seconds} sec`;
 
     // If the countdown is over, display a message
     if (timeLeft < 0) {
