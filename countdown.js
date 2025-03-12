@@ -1,5 +1,5 @@
 // Set the target date
-const targetDate = new Date("March 8, 2025 00:00:00").getTime();
+const targetDate = new Date("April 8, 2025 00:00:00").getTime();
 
 // Update the countdown every second
 const countdownTimer = setInterval(function () {
@@ -14,7 +14,7 @@ const countdownTimer = setInterval(function () {
 
     // Display the result
     document.getElementById("countdown").innerHTML =
-        `${hours} hrs, ${minutes} min, ${seconds} sec`;
+        `${days} days, ${hours} hrs, ${minutes} min, ${seconds} sec`;
 
     // If the countdown is over, display a message
     if (timeLeft < 0) {

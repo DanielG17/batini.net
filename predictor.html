@@ -223,7 +223,7 @@
         </div>
     </div>
     <script src="accounts.js"></script>
-    <h2><br>Matchday 28 PREDICTIONS</h2>
+    <h2><br>Matchday 29 PREDICTIONS</h2>
 
     <div id="gameSection" style="display: none; text-align: center; margin-top: 20px;">
         <div id="fixturesContainer"></div>
@@ -274,16 +274,15 @@
             "Southampton": { code: "SOU", color: "#D71920", short: "S" }
         };
         const fixtures = [
-            { home: "Nottingham Forest", away: "Manchester City" },
-            { home: "Brighton", away: "Fulham" },
-            { home: "Liverpool", away: "Southampton" },
-            { home: "Crystal Palace", away: "Ipswich"},
-            { home: "Brentford", away: "Aston Villa" },
-            { home: "Wolves", away: "Everton" },
-            { home: "Chelsea", away: "Leicester" },
-            { home: "Tottenham", away: "Bournemouth" },
-            { home: "Manchester United", away: "Arsenal" },
-            { home: "West Ham", away: "Newcastle" }
+            { home: "Everton", away: "West Ham" },
+            { home: "Ipswich", away: "Nottingham Forest" },
+            { home: "Manchester City", away: "Brighton" },
+            { home: "Southampton", away: "Wolves"},
+            { home: "Bournemouth", away: "Brentford" },
+            { home: "Arsenal", away: "Chelsea" },
+            { home: "Fulham", away: "Tottenham" },
+            { home: "Leicester", away: "Manchester United" },
+            { home: "Newcastle", away: "Crystal Palace" }
         ];
 
         function showGameSection() {
@@ -328,7 +327,7 @@
             matchDiv.style.backgroundColor = "white";
 
             predictions = ""; // Reset before rebuilding
-            for (let i = 0; i < 10; i++) { // Assuming 10 fixtures
+            for (let i = 0; i < 9; i++) { // Assuming 10 fixtures
                 if (userPredictions[i]) {
                     if (userPredictions[i] !== "DRAW") {
                         const clubShortCode = clubs[Object.keys(clubs).find(club => clubs[club].code === userPredictions[i])].short;
@@ -342,11 +341,11 @@
             }
 
             totalPredictions = Object.keys(userPredictions).length;
-            document.querySelector("#submit h2:last-of-type").innerText = `28: ${loggedInUser}: ${predictions}`;
+            document.querySelector("#submit h2:last-of-type").innerText = `29: ${loggedInUser}: ${predictions}`;
         }
 
         function submit() {
-            if (totalPredictions === 10) {
+            if (totalPredictions === 9) {
                 document.getElementById("submit").style.display = "flex";
             } else {
                 document.getElementById("submitMissing").style.display = "flex";
