@@ -19,6 +19,6 @@ const countdownTimer = setInterval(function () {
     // If the countdown is over, display a message
     if (timeLeft < 0) {
         clearInterval(countdownTimer);
-        document.getElementById("countdown").innerHTML = "May Election in:";
+        document.getElementById("countdown").innerHTML = "ELECTION DAY";
     }
 }, 1000);
