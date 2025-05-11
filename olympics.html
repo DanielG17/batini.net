@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Olmypics</title>
+    <title>Olympics</title>
     <meta property="og:title" content="BÃT1N1">
     <meta property="og:description" content="Olmypics">
     <meta property="og:url" content="https://danielg17.github.io/batini.net/olympics.html">
@@ -135,9 +135,23 @@
         tbody tr:hover {
             background-color: #e0ffe0;
         }
+        .final-line {
+            color: #00ff00;
+            font-size: 24px;
+            font-family: Arial, sans-serif;
+            text-shadow: 2px 2px 4px #000;
+            margin: 40px 0 20px 0;
+            background-color: #000;
+            padding: 15px 30px;
+            border-radius: 12px;
+            display: inline-block;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.4);
+            border: 2px solid #00ff00;
+            text-align: center;
+        }
         .olympics-header {
             font-family: 'Arial Black', sans-serif;
-            font-size: 36px;
+            font-size: 32px;
             color: #00ff00;
             text-shadow: 2px 2px 4px #000;
             margin: 40px 0 20px 0;
@@ -151,15 +165,15 @@
         }
         .olympics-winner {
             font-family: 'Arial Black', sans-serif;
-            font-size: 28px;
-            color: red;
+            font-size: 36px;
+            color: gold;
             text-shadow: 2px 2px 5px #000;
             margin: 30px 0 60px 0;
             background-color: #000;
             padding: 10px 25px;
             border-radius: 12px;
             display: inline-block;
-            border: 2px solid red;
+            border: 2px solid gold;
             box-shadow: 0 0 12px rgba(255, 0, 0, 0.4);
         }
         @keyframes pulseGlow {
@@ -208,7 +222,7 @@
                             <th>Points</th>
                         </tr>
                     </thead>
-                    <tbody">
+                    <tbody>
                         <tr><td>Camilleri</td> <td>0</td> <td></td> <td></td> <td></td> <td></td> </tr>
                         <tr><td>Grech</td> <td>0</td> <td></td> <td></td> <td></td> <td></td> </tr>
                         <tr><td>Micallef</td> <td>0</td> <td></td> <td></td> <td></td> <td></td> </tr>
@@ -216,7 +230,9 @@
                         <tr><td>Gatt</td> <td>0</td> <td></td> <td></td> <td></td> <td></td> </tr>
                     </tbody>
                 </table>
-            </div><br>
+            </div>
+
+            <p class="final-line">Final: ___ vs ___</p><br>
 
             <hr class="sport-divider">
             <div class="centered-title-green">✋ Sport 2: Hand Tennis</div>
@@ -252,7 +268,9 @@
                         <tr><td>Gatt</td> <td>0</td> <td></td> <td></td> <td></td> <td></td> </tr>
                     </tbody>
                 </table>
-            </div><br>
+            </div>
+
+            <p class="final-line">Final: ___ vs ___</p><br>
 
             <hr class="sport-divider">
             <div class="centered-title-green">⚽ Sport 3: Keepy Ups</div>

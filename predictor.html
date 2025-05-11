@@ -222,7 +222,7 @@
         </div>
     </div>
     <script src="accounts.js"></script>
-    <h2><br>Matchday 36 PREDICTIONS</h2>
+    <h2><br>Matchday 37 PREDICTIONS</h2>
 
     <div id="gameSection" style="display: none; text-align: center; margin-top: 20px;">
         <div id="fixturesContainer"></div>
@@ -273,16 +273,16 @@
             "Southampton": { code: "SOU", color: "#D71920", short: "S" }
         };
         const fixtures = [
-            { home: "Ipswich", away: "Brentford" },
-            { home: "Wolves", away: "Brighton" },
-            { home: "Southampton", away: "Manchester City" },
-            { home: "Fulham", away: "Everton"},
-            { home: "Bournemouth", away: "Aston Villa" },
-            { home: "Newcastle", away: "Chelsea" },
-            { home: "Manchester United", away: "West Ham" },
-            { home: "Nottingham Forest", away: "Leicester" },
-            { home: "Tottenham", away: "Crystal Palace" },
-            { home: "Liverpool", away: "Arsenal" }
+            { home: "Aston Villa", away: "Tottenham" },
+            { home: "Chelsea", away: "Manchester United" },
+            { home: "Everton", away: "Southampton" },
+            { home: "West Ham", away: "Nottingham Forest"},
+            { home: "Leicester", away: "Ipswich" },
+            { home: "Brentford", away: "Fulham" },
+            { home: "Arsenal", away: "Newcastle" },
+            { home: "Brighton", away: "Liverpool" },
+            { home: "Crystal Palace", away: "Wolves" },
+            { home: "Manchester City", away: "Bournemouth" }
         ];
 
         function showGameSection() {
@@ -341,7 +341,7 @@
             }
 
             totalPredictions = Object.keys(userPredictions).length;
-            document.querySelector("#submit h2:last-of-type").innerText = `36: ${loggedInUser}: ${predictions}`;
+            document.querySelector("#submit h2:last-of-type").innerText = `37: ${loggedInUser}: ${predictions}`;
         }
 
         function submit() {
