@@ -49,7 +49,6 @@ const loginContent = document.getElementById("loginContent");
 
     if (user) {
         // Successful login
-        document.querySelector("button[onclick='login()']").disabled = true;
         document.querySelector("button[onclick='login()']").innerText = "Logged In";
         loggedInUser = user.username;
         loginContent.innerHTML = `
@@ -59,7 +58,6 @@ const loginContent = document.getElementById("loginContent");
 
     } else {
         // Failed login
-        document.querySelector("button[onclick='login()']").disabled = false;
         document.querySelector("button[onclick='login()']").innerText = "Log In";
         loginContent.innerHTML = `
             <h2>No Account Found.</h2>
@@ -71,9 +69,11 @@ const loginContent = document.getElementById("loginContent");
 
 // Function to show the game section when "Continue" is pressed
 function showGameSection() {
+    closeLogin(); // Close the login modal after continuing
     document.getElementById("gameSection").style.display = "flex";
     document.getElementById("timer").style.display = "block";
-    closeLogin(); // Close the login modal after continuing
+    document.getElementById("score").style.display = "block";
+    document.querySelector(".grid-wrapper").style.display = "block";
 }
 
 // Play as Guest - shows the game section immediately
@@ -83,4 +83,6 @@ function playAsGuest() {
     document.querySelector("button[onclick='login()']").innerText = "Log In";
     document.getElementById("gameSection").style.display = "flex";
     document.getElementById("timer").style.display = "block";
+    document.getElementById("score").style.display = "block";
+    document.querySelector(".grid-wrapper").style.display = "block";
 }

@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reaction</title>
+    <title>Whack-a-Mole</title>
     <meta property="og:title" content="BÃT1N1">
-    <meta property="og:description" content="Reaction">
-    <meta property="og:url" content="https://danielg17.github.io/batini.net/reaction.html">
+    <meta property="og:description" content="Whack-a-Mole">
+    <meta property="og:url" content="https://danielg17.github.io/batini.net/whack.html">
     <meta property="og:image" content="https://danielg17.github.io/batini.net/stickers.jpg">
     <meta property="og:type" content="website">
     <link rel="icon" href="icon.jpg" type="image/jpeg">
@@ -80,7 +80,7 @@
             justify-content: center;
         }
         .leaderboard-container {
-            width: 300px;
+            width: 250px;
             background-color: #f9f9f9;
             padding: 10px;
             border: 5px solid #00ff00;
@@ -102,8 +102,8 @@
             text-align: right;
             font-weight: bold;
         }
-        .time {
-            width: 80px;
+        .leadscore {
+            width: 20px;
             text-align: right;
         }
         .user {
@@ -169,9 +169,32 @@
     	    background-color: #000;
     	    color: #00ff00;
 	    }
-        #timer {
-            font-size: 30px;
-            margin-top: 20px;
+        #info-bar {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        #timer, #score {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 8px;
+            background: #1a1a1a;
+            color: #00ff00;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        #grid {
+            display: grid;
+            grid-template-columns: repeat(5, 70px);
+            grid-template-rows: repeat(5, 70px);
+            width: fit-content;
+            margin: 20px auto;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
         }
         .modal {
             display: none;
@@ -236,133 +259,147 @@
     <script src="accounts.js"></script>
 
     <br>
-    <h3>Press Play to start. Click again when the screen goes blue</h3>
-    <h3>Log in to save great times on the leaderboard - Refreshing may log you out</h3>
-    <div class="button-container no-hover" style="display: none; justify-content: center; align-items: center; gap: 20px;" id="gameSection">
+    <h3>Press Play to start</h3>
+    <h3>Log in to save great scores on the leaderboard - Refreshing may log you out</h3>
+    <div class="button-container" style="display: none; justify-content: center; align-items: center; gap: 20px;" id="gameSection">
         <button id="playButton" onclick="startGame()">Play</button>
     </div>
-    <div id="timer" style="display: none;">00:000.00</div>
-    <div id="gameMessage" style="color: red; font-size: 20px;"></div>
+    <br>
+    <div id="info-bar">
+        <div id="timer" style="display: none;">00:00</div>
+        <div id="score" style="display: none;">Score: 0</div>
+    </div>
+    <div class="grid-wrapper" style="display: none;">
+        <div id="grid"></div>
+    </div>
 
-    <div id="greatTime" class="modal">
+    <div id="greatScore" class="modal">
         <div class="modal-content">
-            <h2>You reacted in less than 0.05 of a second!</h2>
-            <p>If this time beats your personal record, you can send a screenshot of this message to Daniel Grech to feature on the leaderboard</p>
+            <h2>You scored over 10 points!</h2>
+            <p>If this score beats your personal record, you can send a screenshot of this message to Daniel Grech to feature on the leaderboard</p>
             <h2></h2>
-            <button onclick="closeGreatTime()" style="background-color: #00ff00; color: #000; padding: 14px 25px; font-size: 18px; font-weight: bold; border-radius: 5px; cursor: pointer; width: 50%; transition: background-color 0.3s, color 0.3s; margin: 0 auto;">Continue</button>
+            <button onclick="closeGreatScore()" style="background-color: #00ff00; color: #000; padding: 14px 25px; font-size: 18px; font-weight: bold; border-radius: 5px; cursor: pointer; width: 50%; transition: background-color 0.3s, color 0.3s; margin: 0 auto;">Continue</button>
         </div>
     </div>
     
     <script>
         let playButton = document.getElementById('playButton');
         let timerDisplay = document.getElementById('timer');
-        let startTime;
-        let stopTime;
-        let isGameActive = false;
+        let scoreDisplay = document.getElementById('score');
         let timeout;
+        let score = 0;
+        let timeLeft = 10;
+        let activeMoles = 0;
+        let moleInterval;
         let timerInterval;
-        let isBlue = false;
 
-        // Function to start the game
         function startGame() {
-            document.querySelector("button[onclick='playAsGuest()']").disabled = true;
-            document.querySelector("button[onclick='login()']").disabled = true;
-            if (isGameActive) {
-                // Stop the game if stop button is clicked
-                stopGame();
-                document.querySelector("button[onclick='playAsGuest()']").disabled = false;
-                document.querySelector("button[onclick='login()']").disabled = false;
+            score = 0;
+            timeLeft = 10;
+            activeMoles = 0;
+            timer.textContent = "00:10";
+            scoreDisplay.textContent = "Score: 0";
+            timer.style.display = "block";
+            scoreDisplay.style.display = "block";
+            document.querySelector(".grid-wrapper").style.display = "block";
+            clearInterval(timerInterval);
+            clearInterval(moleInterval);
+
+            if (grid.children.length === 0) {
+                for (let i = 0; i < 25; i++) {
+                    const cell = document.createElement("button");
+                    cell.className = "mole-cell";
+                    cell.dataset.active = "false";
+                    cell.style.border = "1px solid #00ff00";
+                    cell.style.width = "70px";
+                    cell.style.height = "70px";
+                    cell.style.fontSize = "30px";
+                    cell.style.backgroundColor = "white";
+                    cell.style.cursor = "pointer";
+                    cell.onclick = () => {
+                        if (cell.dataset.active === "true") {
+                            score++;
+                            cell.textContent = "";
+                            cell.dataset.active = "false";
+                            activeMoles--;
+                            document.getElementById("score").textContent = `Score: ${score}`;
+                        }
+                    };
+                    grid.appendChild(cell);
+                }
             } else {
-                // Start the game
-                document.getElementById("gameMessage").innerHTML = '';
-                playButton.innerText = 'Wait for Blue';
-                isGameActive = true;
-                document.body.style.backgroundColor = '#ff0000'; // Red background while waiting
-                timerDisplay.innerText = '00:000.00';
-                
-                // Random delay before color change
-                let randomDelay = Math.floor(Math.random() * 2500) + 1000;
-                timeout = setTimeout(function() {
-                    // Change screen to blue and update button
-                    document.body.style.backgroundColor = '#44aaff';
-                    playButton.innerText = 'Click Here'; // Change button text
-                    isBlue = true;
-                    startTime = performance.now(); // Start the high precision timer
-                    startTimer();
-                }, randomDelay);
-            }
-        }
-
-        // Function to start the timer
-        function startTimer() {
-            timerInterval = setInterval(function() {
-                let elapsedTime = performance.now() - startTime; // Elapsed time in milliseconds
-                let seconds = Math.floor(elapsedTime / 1000);
-                let milliseconds = Math.floor(elapsedTime % 1000);
-                let nanoseconds = Math.floor((elapsedTime % 1) * 100);
-
-                let paddedSeconds = String(seconds).padStart(2, '0'); // Ensure two digits for seconds
-                let paddedMilliseconds = String(milliseconds).padStart(3, '0'); // Ensure three digits for milliseconds
-                let paddedNanoseconds = String(nanoseconds).padStart(2, '0'); // Ensure two digits for nanoseconds
-
-                // Format the timer display
-                let formattedTime = `${paddedSeconds}:${paddedMilliseconds}.${paddedNanoseconds}`;
-                timerDisplay.innerText = formattedTime;
-            }, 10); // Update every 10ms
-        }
-
-        function resetGame() {
-            playButton.innerText = 'Play';
-            isGameActive = false;
-            isBlue = false;
-            document.body.style.backgroundColor = '#ffffff';
-            clearTimeout(timeout); // Clear any active timeout if the user clicked early
-        }
-
-        function stopGame() {
-            if (!isBlue) {
-                document.getElementById("gameMessage").innerHTML = "<br><strong>Too soon!</strong>";
-                formattedTime = '00:000.00';
-                resetGame();
-                return; // Do not proceed with calculating time
-            }else{
-                stopTime = performance.now();
-                clearInterval(timerInterval); // Stop the timer
-                
-                let elapsedTime = stopTime - startTime;
-                let seconds = Math.floor(elapsedTime / 1000);
-                let milliseconds = Math.floor(elapsedTime % 1000);
-                let nanoseconds = Math.floor((elapsedTime % 1) * 100);
-
-                let paddedSeconds = String(seconds).padStart(2, '0'); // Ensure two digits for seconds
-                let paddedMilliseconds = String(milliseconds).padStart(3, '0'); // Ensure three digits for milliseconds
-                let paddedNanoseconds = String(nanoseconds).padStart(2, '0'); // Ensure two digits for nanoseconds
-                
-                // Format the final reaction time
-                let formattedTime = `${paddedSeconds}:${paddedMilliseconds}.${paddedNanoseconds}`;
-                timerDisplay.innerText = formattedTime;
-
-                this.resetGame();
-
-                if (elapsedTime < 50 && loggedInUser !== null) {
-                    document.getElementById("greatTime").style.display = "flex";
-                    document.querySelector("#greatTime h2:last-of-type").innerText = `${loggedInUser}: ${formattedTime}`;
+                // Reset all cells
+                for (const cell of grid.children) {
+                    cell.textContent = "";
+                    cell.dataset.active = "false";
                 }
             }
+
+            document.querySelector("button[onclick='playAsGuest()']").disabled = true;
+            document.querySelector("button[onclick='login()']").disabled = true;
+            document.getElementById("playButton").disabled = true;
+            moleInterval = setInterval(spawnMole, 500);
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                document.getElementById("timer").textContent = formatTime(timeLeft);
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    clearInterval(moleInterval);
+                    document.querySelectorAll('.cell').forEach(cell => {
+                        cell.innerHTML = '';
+                    });
+                    document.getElementById("playButton").disabled = false;
+                    document.querySelector("button[onclick='playAsGuest()']").disabled = false;
+                    document.querySelector("button[onclick='login()']").disabled = false;
+                    if (score > 15 && loggedInUser !== null) {
+                        document.getElementById("greatScore").style.display = "flex";
+                        document.querySelector("#greatScore h2:last-of-type").innerText = `${loggedInUser}: ${score}`;
+                    }
+                }
+            }, 1000);
         }
 
-        function closeGreatTime() {
-            document.getElementById("greatTime").style.display = "none";
+        function spawnMole() {
+            if (activeMoles >= 3) return;
+
+            const buttons = Array.from(document.querySelectorAll(".mole-cell"));
+            const inactive = buttons.filter(btn => btn.dataset.active === "false");
+
+            if (inactive.length === 0) return;
+
+            const randomCell = inactive[Math.floor(Math.random() * inactive.length)];
+            randomCell.textContent = "⚫";
+            randomCell.dataset.active = "true";
+            activeMoles++;
+
+            setTimeout(() => {
+                if (randomCell.dataset.active === "true") {
+                    randomCell.textContent = "";
+                    randomCell.dataset.active = "false";
+                    activeMoles--;
+                }
+            }, 700);
+        }
+
+        function formatTime(seconds) {
+            const mins = String(Math.floor(seconds / 60)).padStart(2, '0');
+            const secs = String(seconds % 60).padStart(2, '0');
+            return `${mins}:${secs}`;
+        }
+
+        function closeGreatScore() {
+            document.getElementById("greatScore").style.display = "none";
         }
     </script>
-
     <br><br>
     <div class="container">
         <div class="leaderboard-container">
-            <h2>Best Times (round 2):</h2>
-            <p><span class="rank">1.</span> <span class="time">00.013.20</span> <span class="user">-  gabriel_bokli</span></p>
-            <p><span class="rank">2.</span> <span class="time">00.029.60</span> <span class="user">-  dan_grec</span></p>
-            <p><span class="rank">3.</span> <span class="time">00.107.59</span> <span class="user">-  david_g</span></p>
+            <h2>Best Scores:</h2>
+            <p><span class="rank">1.</span> <span class="leadscore">0</span> <span class="user">-  danielrix08</span></p>
+            <p><span class="rank">2.</span> <span class="leadscore">0</span> <span class="user">-  dan_grec</span></p>
+            <p><span class="rank">3.</span> <span class="leadscore">0</span> <span class="user">-  John_LLTK</span></p>
+            <p><span class="rank">4.</span> <span class="leadscore">0</span> <span class="user">-  Kennybat1n1</span></p>
+            <p><span class="rank">5.</span> <span class="leadscore">0</span> <span class="user">-  Matteo</span></p>
         </div>
     </div>
 </body>
