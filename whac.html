@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Whack-a-Mole</title>
+    <title>Whac-a-Mole</title>
     <meta property="og:title" content="BÃT1N1">
-    <meta property="og:description" content="Whack-a-Mole">
-    <meta property="og:url" content="https://danielg17.github.io/batini.net/whack.html">
+    <meta property="og:description" content="Whac-a-Mole">
+    <meta property="og:url" content="https://danielg17.github.io/batini.net/whac.html">
     <meta property="og:image" content="https://danielg17.github.io/batini.net/stickers.jpg">
     <meta property="og:type" content="website">
     <link rel="icon" href="icon.jpg" type="image/jpeg">
@@ -338,7 +338,7 @@
             document.querySelector("button[onclick='playAsGuest()']").disabled = true;
             document.querySelector("button[onclick='login()']").disabled = true;
             document.getElementById("playButton").disabled = true;
-            moleInterval = setInterval(spawnMole, 500);
+            moleInterval = setInterval(spawnMole, 400);
             timerInterval = setInterval(() => {
                 timeLeft--;
                 document.getElementById("timer").textContent = formatTime(timeLeft);
@@ -351,7 +351,7 @@
                     document.getElementById("playButton").disabled = false;
                     document.querySelector("button[onclick='playAsGuest()']").disabled = false;
                     document.querySelector("button[onclick='login()']").disabled = false;
-                    if (score > 15 && loggedInUser !== null) {
+                    if (score > 10 && loggedInUser !== null) {
                         document.getElementById("greatScore").style.display = "flex";
                         document.querySelector("#greatScore h2:last-of-type").innerText = `${loggedInUser}: ${score}`;
                     }
@@ -360,7 +360,7 @@
         }
 
         function spawnMole() {
-            if (activeMoles >= 3) return;
+            if (activeMoles >= 5) return;
 
             const buttons = Array.from(document.querySelectorAll(".mole-cell"));
             const inactive = buttons.filter(btn => btn.dataset.active === "false");
@@ -378,7 +378,7 @@
                     randomCell.dataset.active = "false";
                     activeMoles--;
                 }
-            }, 700);
+            }, 450);
         }
 
         function formatTime(seconds) {
