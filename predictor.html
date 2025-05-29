@@ -58,18 +58,6 @@
             border: 1px solid #ddd;
             border-radius: 5px;
         }
-        .centered-title {
-            font-family: Arial, sans-serif;
-            color: red;
-            font-size: 24px;
-            text-align: center;
-            margin: 20px 0;
-        }
-        .centered-title-green {
-            color: green;
-            font-size: 20px;
-            margin: 20px 0;
-        }
         .centered-image {
             display: flex;
             justify-content: center;
@@ -219,7 +207,6 @@
     <div class="button-container" style="display: flex; justify-content: center; align-items: center; gap: 20px;">
         <button onclick="login()">Log In</button>
     </div>
-    
     <div id="loginModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center;">
         <div id="loginContent" style="background: white; padding: 20px; border-radius: 10px; text-align: center; width: 300px;">
         </div>
@@ -269,23 +256,23 @@
             "Fulham": { code: "FUL", color: "#000000", short: "M" },
             "Crystal Palace": { code: "CRY", color: "#1B458F", short: "P" },
             "Wolves": { code: "WOL", color: "#FDB913", short: "O" },
-            "Leicester": { code: "LEI", color: "#0036A7", short: "Y" },
+            "Burnley": { code: "LEI", color: "#0036A7", short: "Y" },
             "Bournemouth": { code: "BOU", color: "#DA291C", short: "R" },
             "Brentford": { code: "BRE", color: "#E30613", short: "D" },
-            "Ipswich": { code: "IPS", color: "#005599", short: "I" },
-            "Southampton": { code: "SOU", color: "#D71920", short: "S" }
+            "Leeds": { code: "IPS", color: "#005599", short: "G" },
+            "Sunderland": { code: "SOU", color: "#D71920", short: "S" }
         };
         const fixtures = [
             { home: "Wolves", away: "Brentford" },
             { home: "Tottenham", away: "Brighton" },
-            { home: "Southampton", away: "Arsenal" },
+            { home: "Sunderland", away: "Arsenal" },
             { home: "Nottingham Forest", away: "Chelsea"},
             { home: "Newcastle", away: "Everton" },
             { home: "Manchester United", away: "Aston Villa" },
             { home: "Liverpool", away: "Crystal Palace" },
-            { home: "Ipswich", away: "West Ham" },
+            { home: "Leeds", away: "West Ham" },
             { home: "Fulham", away: "Manchester City" },
-            { home: "Bournemouth", away: "Leicester" }
+            { home: "Bournemouth", away: "Burnley" }
         ];
 
         function showGameSection() {

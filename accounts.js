@@ -1,21 +1,21 @@
 // User data
 const users = [
-    { name: "Daniel Grech", username: "dan_grec", password: "lejber" },
-    { name: "1", username: "1", password: "1" },
-    { name: "John Gatt", username: "John_LLTK", password: "rutartsinimmaawqal" },
-    { name: "Daniel Vella", username: "danielrix08", password: "Iamgay17" },
-    { name: "Matteo Camilleri", username: "Matteo", password: "12bucklemyshoe" },
-    { name: "Kenneth Micallef", username: "Kennybat1n1", password: "abbatinikjddm" },
-    { name: "Jake Sacco", username: "jake_sax", password: "kondoljanzi" },
-    { name: "Gabriel Xerri", username: "gabriel_bokli", password: "gabriel06" },
-    { name: "Ethan Refalo", username: "Ethan", password: "1234" },
-    { name: "Kieran Calleja", username: "kieran_kiskis", password: "kiskis1908" },
-    { name: "Denzil Bugeja", username: "denzil", password: "denzil21" },
-    { name: "Keith Sultana", username: "keithsultana16", password: "ticklemeuncle" },
-    { name: "Kiran Camilleri", username: "Kiran_PsPs21", password: "(zzobbUGhoxx813)"},
-    { name: "David Grima", username: "david_g", password: "EmanuelOnTop"},
-    { name: "Lucas Micallef", username: "Lucas M", password: "wwww"},
-    { name: "Sebastian Portelli", username: "Sebastian_06", password: "Sebi"}
+    { name: "Daniel Grech", username: "dan_grec", password: "lejber", coins: "53" },
+    { name: "1", username: "1", password: "1", coins: "0" },
+    { name: "John Gatt", username: "John_LLTK", password: "rutartsinimmaawqal", coins: "10" },
+    { name: "Daniel Vella", username: "danielrix08", password: "Iamgay17", coins: "47" },
+    { name: "Matteo Camilleri", username: "Matteo", password: "12bucklemyshoe", coins: "15" },
+    { name: "Kenneth Micallef", username: "Kennybat1n1", password: "abbatinikjddm", coins: "5" },
+    { name: "Jake Sacco", username: "jake_sax", password: "kondoljanzi", coins: "35" },
+    { name: "Gabriel Xerri", username: "gabriel_bokli", password: "gabriel06", coins: "22" },
+    { name: "Ethan Refalo", username: "Ethan", password: "1234", coins: "10" },
+    { name: "Kieran Calleja", username: "kieran_kiskis", password: "kiskis1908", coins: "28" },
+    { name: "Denzil Bugeja", username: "denzil", password: "denzil21", coins: "55" },
+    { name: "Keith Sultana", username: "keithsultana16", password: "ticklemeuncle", coins: "0" },
+    { name: "Kiran Camilleri", username: "Kiran_PsPs21", password: "(zzobbUGhoxx813)", coins: "0"},
+    { name: "David Grima", username: "david_g", password: "EmanuelOnTop", coins: "0"},
+    { name: "Lucas Micallef", username: "Lucas M", password: "wwww", coins: "0"},
+    { name: "Sebastian Portelli", username: "Sebastian_06", password: "Sebi", coins: "0"}
 ];
 
 function login() {
