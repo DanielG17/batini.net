@@ -72,7 +72,7 @@ const loginContent = document.getElementById("loginContent");
 function showGameSection() {
     closeLogin();
     const gameSection = document.getElementById("gameSection");
-    if (gameSection) gameSection.style.display = "flex";
+    if (gameSection) gameSection.style.display = "block";
 
     const coinsContainer = document.getElementById("coinsContainer");
     if (coinsContainer) coinsContainer.innerText = `You have ${coins} BĀT1N1 Coins`;
@@ -92,7 +92,7 @@ function playAsGuest() {
     document.querySelector("button[onclick='login()']").disabled = false;
     document.querySelector("button[onclick='login()']").innerText = "Log In";
     const gameSection = document.getElementById("gameSection");
-    if (gameSection) gameSection.style.display = "flex";
+    if (gameSection) gameSection.style.display = "block";
 
     const timer = document.getElementById("timer");
     if (timer) timer.style.display = "block";
