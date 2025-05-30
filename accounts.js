@@ -1,7 +1,7 @@
 // User data
 const users = [
     { name: "Daniel Grech", username: "dan_grec", password: "lejber", coins: "53" },
-    { name: "1", username: "1", password: "1", coins: "0" },
+    { name: "1", username: "1", password: "1", coins: "123" },
     { name: "John Gatt", username: "John_LLTK", password: "rutartsinimmaawqal", coins: "10" },
     { name: "Daniel Vella", username: "danielrix08", password: "Iamgay17", coins: "47" },
     { name: "Matteo Camilleri", username: "Matteo", password: "12bucklemyshoe", coins: "15" },
@@ -39,6 +39,7 @@ function closeLogin() {
 }
 
 let loggedInUser = null;
+let coins = null;
 function validateLogin() {
 const username = document.getElementById("username").value;
 const password = document.getElementById("password").value;
@@ -51,6 +52,7 @@ const loginContent = document.getElementById("loginContent");
         // Successful login
         document.querySelector("button[onclick='login()']").innerText = "Logged In";
         loggedInUser = user.username;
+        coins = user.coins;
         loginContent.innerHTML = `
             <h2>Welcome, ${user.name}!</h2>
             <button onclick="showGameSection()" style="background-color: #00ff00; color: #000; padding: 14px 25px; font-size: 18px; font-weight: bold; border-radius: 5px; cursor: pointer; width: 50%; transition: background-color 0.3s, color 0.3s; margin: 0 auto;">Continue</button>
@@ -67,22 +69,37 @@ const loginContent = document.getElementById("loginContent");
     }    
 }
 
-// Function to show the game section when "Continue" is pressed
 function showGameSection() {
-    closeLogin(); // Close the login modal after continuing
-    document.getElementById("gameSection").style.display = "flex";
-    document.getElementById("timer").style.display = "block";
-    document.getElementById("score").style.display = "block";
-    document.querySelector(".grid-wrapper").style.display = "block";
+    closeLogin();
+    const gameSection = document.getElementById("gameSection");
+    if (gameSection) gameSection.style.display = "flex";
+
+    const coinsContainer = document.getElementById("coinsContainer");
+    if (coinsContainer) coinsContainer.innerText = `You have ${coins} BĀT1N1 Coins`;
+
+    const timer = document.getElementById("timer");
+    if (timer) timer.style.display = "block";
+
+    const score = document.getElementById("score");
+    if (score) score.style.display = "block";
+
+    const grid = document.querySelector(".grid-wrapper");
+    if (grid) grid.style.display = "block";
 }
 
-// Play as Guest - shows the game section immediately
 function playAsGuest() {
     loggedInUser = null;
     document.querySelector("button[onclick='login()']").disabled = false;
     document.querySelector("button[onclick='login()']").innerText = "Log In";
-    document.getElementById("gameSection").style.display = "flex";
-    document.getElementById("timer").style.display = "block";
-    document.getElementById("score").style.display = "block";
-    document.querySelector(".grid-wrapper").style.display = "block";
+    const gameSection = document.getElementById("gameSection");
+    if (gameSection) gameSection.style.display = "flex";
+
+    const timer = document.getElementById("timer");
+    if (timer) timer.style.display = "block";
+
+    const score = document.getElementById("score");
+    if (score) score.style.display = "block";
+
+    const grid = document.querySelector(".grid-wrapper");
+    if (grid) grid.style.display = "block";
 }
