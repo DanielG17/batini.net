@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market</title>
+    <meta property="og:title" content="BÃT1N1">
+    <meta property="og:description" content="Market">
+    <meta property="og:url" content="https://danielg17.github.io/batini.net/market.html">
+    <meta property="og:image" content="https://danielg17.github.io/batini.net/stickers.jpg">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="icon.jpg" type="image/jpeg">
+    <link rel="shortcut icon" href="icon.jpg" type="image/jpeg">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0 0 50px 0;
+            text-align: center;
+        }
+        header {
+            background-color: #00ff00;
+            padding: 0.02px 0;
+    	}
+        nav {
+            background-color: #000000;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+        }
+        nav a {
+            color: #00ff00;
+            padding: 14px 20px;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+	        transition: background-color 0.3s, color 0.3s;
+        }
+        nav a:hover {
+            background-color: #00ff00;
+	        color: #000000;
+        }
+        .title {
+            font-size: 28px;
+            font-family: Arial, sans-serif;
+            text-shadow: 1px 1px 2px #00ff00;
+            margin-bottom: 20px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        .subtitle {
+            font-size: 20px;
+            font-family: Arial, sans-serif;
+            margin-bottom: 20px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        button {
+    	    background-color: #00ff00;
+    	    color: #000;
+    	    border: 2px solid #00ff00;
+    	    padding: 14px 25px;
+    	    font-size: 18px;
+    	    font-weight: bold;
+    	    border-radius: 5px;
+    	    cursor: pointer;
+    	    transition: background-color 0.3s, color 0.3s;
+	        width: 170px;
+	        margin-top: 10px;
+	        margin-right: 50px;
+	        margin-left: 50px;
+	        display: inline-block;
+    	    text-align: center;
+    	    line-height: normal;
+            height: 70px;
+        }
+        button:hover {
+    	    background-color: #000;
+    	    color: #00ff00;
+	    }
+        button:disabled {
+    	    background-color: #d3d3d3;
+    	    border: 2px solid #a9a9a9;
+    	    cursor: not-allowed;
+	    }
+        button:hover:disabled {
+            background-color: #557555;
+            color: black;
+        }
+        buttonTwo {
+    	    background-color: #00ff00;
+    	    color: #000;
+    	    border: 2px solid #00ff00;
+    	    padding: 14px 25px;
+    	    font-size: 18px;
+    	    font-weight: bold;
+    	    border-radius: 5px;
+    	    cursor: pointer;
+    	    transition: background-color 0.3s, color 0.3s;
+	        width: 200px;
+	        margin-top: 10px;
+	        margin-right: 50px;
+	        margin-left: 50px;
+	        display: inline-block;
+    	    text-align: center;
+    	    line-height: normal;
+            height: 20px;
+        }
+        buttonTwo:hover {
+    	    background-color: #000;
+    	    color: #00ff00;
+	    }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+        }
+        .modal-content input {
+            display: block;
+            width: 90%;
+            margin: 10px auto;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .coinsContainer {
+            font-family: 'Arial', sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffd700;
+            background-color: #222;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            margin: 0 auto;
+            border-radius: 10px;
+        }
+        .card {
+            width: 250px;
+            height: 350px;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            font-family: Arial, sans-serif;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
+            margin: 12px;
+        }
+        .common {
+            background-color: #7a7a7a;
+        }
+        .rare {
+            background-color: #ff8c00;
+        }
+        .epic {
+            background-color: #6a0dad;
+        }
+        .special {
+            background-color: #00008B;
+        }
+        .card.powerup .powerup-value {
+            width: 100%;
+            height: 140px;
+            background: linear-gradient(135deg, #1a1a1a, #2e2e2e);
+            border: 2px solid #00ff00;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 56px;
+            font-weight: 900;
+            color: #00ff00;
+            text-shadow:
+                0 0 6px #00ff00,
+                0 0 12px #00ff00,
+                0 0 24px #00cc00,
+                2px 2px 8px rgba(0, 0, 0, 0.6);
+            box-shadow: inset 0 0 10px #00ff00, 0 0 10px rgba(0, 255, 0, 0.3);
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+        .card.pack .pack-value {
+            width: 100%;
+            height: 140px;
+            background: linear-gradient(135deg, #1a1a1a, #2e2e2e);
+            border: 2px solid #ffd700;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: 900;
+            color: #ffd700;
+            box-shadow: inset 0 0 10px #ffd700, 0 0 10px rgba(0, 255, 0, 0.3);
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+        }
+        .card img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+        .card h2 {
+            font-size: 20px;
+            margin: 0;
+        }
+        .card .stats {
+            margin-top: 8px;
+            font-size: 16px;
+        }
+        .card .ability {
+            margin-top: 8px;
+            font-style: italic;
+            font-size: 14px;
+        }
+        .card .caption {
+            margin-top: 12px;
+            font-size: 13px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 6px;
+            border-radius: 6px;
+        }
+        .divider {
+            border: none;
+            height: 2px;
+            margin: 40px auto;
+            width: 80%;
+            background: linear-gradient(to right, #00ff00, #000, #00ff00);
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+        @media (max-width: 768px) {
+            button {
+                width: 90%;
+                max-width: 250px;
+                height: 50px;
+                font-size: 18px;
+                padding: 12px 20px;
+                margin-right: 15px;
+	            margin-left: 15px;
+                display: block;
+            }
+            .card {
+                width: 37.5vw;
+                height: auto;
+                padding: 12px;
+            }
+            .card img {
+                height: 120px;
+            }
+            .card h2 {
+                font-size: 15px;
+            }
+            .card .stats {
+                font-size: 13px;
+            }
+            .card .ability {
+                font-size: 12px;
+            }
+            .card .caption {
+                font-size: 12px;
+                padding: 5px;
+            }
+            .pack-value {
+                font-size: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>BÃT1N1</h1>
+        <nav>
+    	    <a href="index.html">Home</a>
+	        <a href="aboutus.html">About Us</a>
+            <a href="games.html">Games</a>
+            <a href="market.html">Market</a>
+            <a href="collection.html">Collection</a>
+    	    <a href="archive.html">Archive</a>
+    	</nav>
+    </header>
+
+    <h2 class="title">Trading Cards</h2>
+    <hr class="divider">
+    <h2 class="subtitle">Characters</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center">
+        <div class="card epic">
+            <img src="cards/john.jpg" alt="John Gatt">
+            <h2>John Gatt</h2>
+            <div class="stats">HP: 130 | Damage: 25</div>
+            <div class="ability">Special: "Disappearing Act"</div>
+            <div class="caption">Caption: TBC</div>
+        </div>
+
+        <div class="card rare">
+            <img src="cards/rixu.jpg" alt="Daniel Vella">
+            <h2>Daniel Vella</h2>
+            <div class="stats">HP: 120 | Damage: 35</div>
+            <div class="ability">Special: "Rixu Moment"</div>
+            <div class="caption">Caption: TBC</div>
+        </div>
+
+        <div class="card rare">
+            <img src="cards/kenneth.jpg" alt="Kenneth Micallef">
+            <h2>Kenneth Micallef</h2>
+            <div class="stats">HP: 140 | Damage: 30</div>
+            <div class="ability">Special: "Waterfall"</div>
+            <div class="caption">Caption: TBC</div>
+        </div>
+
+        <div class="card rare">
+            <img src="cards/ryan.jpg" alt="Ryan Curmi">
+            <h2>Ryan Curmi</h2>
+            <div class="stats">HP: 130 | Damage: 30</div>
+            <div class="ability">Special: "Little Kids"</div>
+            <div class="caption">Caption: TBC</div>
+        </div>
+
+        <div class="card common">
+            <img src="cards/matteo.jpg" alt="Matteo Camilleri">
+            <h2>Matteo Camilleri</h2>
+            <div class="stats">HP: 110 | Damage: 40</div>
+            <div class="ability">Special: "Top Bins"</div>
+            <div class="caption">Caption: TBC</div>
+        </div>
+
+        <div class="card common">
+            <img src="cards/grech.jpeg" alt="Daniel Grech">
+            <h2>Daniel Grech</h2>
+            <div class="stats">HP: 100 | Damage: 20</div>
+            <div class="ability">Special: "Nose Attack"</div>
+            <div class="caption">Caption: TBC</div>
+        </div>
+
+        <div class="card common">
+            <img src="" alt="Luka Haber">
+            <h2>Luka Haber</h2>
+            <div class="stats">HP: 90 | Damage: 25</div>
+            <div class="ability">Special: "Chaos"</div>
+            <div class="caption">Caption: TBC</div>
+        </div>
+    </div>
+    <br>
+    <hr class="divider">
+    <h2 class="subtitle">Powerups</h2>
+    <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center">
+        <div class="card common powerup">
+            <div class="powerup-value">+10</div>
+            <h2>Health Boost</h2>
+            <div class="stats">+10 HP</div>
+            <div class="ability">Restores 10 HP to one of your cards.</div>
+            <div class="caption"></div>
+        </div>
+
+        <div class="card rare powerup">
+            <div class="powerup-value">+10</div>
+            <h2>Health Boost</h2>
+            <div class="stats">+10 HP</div>
+            <div class="ability">Restores 10 HP to two of your cards.</div>
+            <div class="caption"></div>
+        </div>
+
+        <div class="card epic powerup">
+            <div class="powerup-value">+10</div>
+            <h2>Health Boost</h2>
+            <div class="stats">+10 HP</div>
+            <div class="ability">Restores 10 HP to all of your cards.</div>
+            <div class="caption"></div>
+        </div>
+
+        <div class="card common powerup">
+            <div class="powerup-value">+10</div>
+            <h2>Damage Boost</h2>
+            <div class="stats">+10 Damage</div>
+            <div class="ability">One of your cards deals 10 more Damage.</div>
+            <div class="caption"></div>
+        </div>
+
+        <div class="card rare powerup">
+            <div class="powerup-value">+10</div>
+            <h2>Damage Boost</h2>
+            <div class="stats">+10 Damage</div>
+            <div class="ability">Two of your cards deal 10 more Damage.</div>
+            <div class="caption"></div>
+        </div>
+
+        <div class="card epic powerup">
+            <div class="powerup-value">+10</div>
+            <h2>Damage Boost</h2>
+            <div class="stats">+10 Damage</div>
+            <div class="ability">All of your cards deal 10 more Damage.</div>
+            <div class="caption"></div>
+        </div>
+    </div>
+
+    <br>
+    <hr class="divider">
+    <h2>Log In to purchase Packs</h2>
+    <div class="button-container" style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+        <button onclick="login()">Log In</button>
+    </div>
+
+    <div id="loginModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center;">
+        <div id="loginContent" style="background: white; padding: 20px; border-radius: 10px; text-align: center; width: 300px;">
+        </div>
+    </div>
+    <script src="accounts.js"></script>
+
+    <div id="gameSection" style="display: none; text-align: center; margin-top: 20px;">
+        <div id="coinsContainer" class="coinsContainer"></div>
+        <hr class="divider">
+        <h2 class="subtitle">Packs</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center">
+            <div class="card special pack">
+                <div class="pack-value">BASE</div>
+                <h2>Pack</h2>
+                <div class="stats">10 Coins</div>
+                <div class="ability">Guarantees 1 Common Character.</div>
+                <div class="button-container" style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+                    <button onclick="packsBase()">Buy</button>
+                </div>
+            </div>
+
+            <div class="card special pack">
+                <div class="pack-value">ULTRA</div>
+                <h2>Pack</h2>
+                <div class="stats">20 Coins</div>
+                <div class="ability">Guarantees 1 Rare Character.</div>
+                <div class="button-container" style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+                    <button onclick="packsUltra()">Buy</button>
+                </div>
+            </div>
+
+            <div class="card special pack">
+                <div class="pack-value">ULTIMATE</div>
+                <h2>Pack</h2>
+                <div class="stats">30 Coins</div>
+                <div class="ability">Guarantees 1 Epic Character.</div>
+                <div class="button-container" style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+                    <button onclick="packsUltimate()">Buy</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="packsModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center;">
+            <div id="packsContent" style="background: white; padding: 20px; border-radius: 10px; text-align: center; width: 300px;">
+            </div>
+        </div>
+        <div id="baseModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center;">
+            <div id="baseContent" style="background: white; padding: 20px; border-radius: 10px; text-align: center; width: 850px;">
+            </div>
+        </div>
+        <div id="ultraModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center;">
+            <div id="ultraContent" style="background: white; padding: 20px; border-radius: 10px; text-align: center; width: 850px;">
+            </div>
+        </div>
+        <div id="ultimateModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center;">
+            <div id="ultimateContent" style="background: white; padding: 20px; border-radius: 10px; text-align: center; width: 850px;">
+            </div>
+        </div>
+        <script src="packs.js"></script>
+    </div>
+</body>
+</html>
