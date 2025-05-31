@@ -15,7 +15,8 @@ const users = [
     { name: "Kiran Camilleri", username: "Kiran_PsPs21", password: "(zzobbUGhoxx813)", coins: "0"},
     { name: "David Grima", username: "david_g", password: "EmanuelOnTop", coins: "0"},
     { name: "Lucas Micallef", username: "Lucas M", password: "wwww", coins: "0"},
-    { name: "Sebastian Portelli", username: "Sebastian_06", password: "Sebi", coins: "0"}
+    { name: "Sebastian Portelli", username: "Sebastian_06", password: "Sebi", coins: "0"},
+    { name: "Ryan Curmi", username: "Ryan curmi", password: "123456", coins: "0"}
 ];
 
 function login() {
