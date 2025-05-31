@@ -387,7 +387,7 @@
         <div class="card common powerup">
             <div class="powerup-value">+10</div>
             <h2>Damage Boost</h2>
-            <div class="stats">+10 HP</div>
+            <div class="stats">+10 Damage</div>
             <div class="ability">One of your cards deals 10 more Damage.</div>
             <div class="caption"></div>
         </div>
@@ -395,7 +395,7 @@
         <div class="card rare powerup">
             <div class="powerup-value">+10</div>
             <h2>Damage Boost</h2>
-            <div class="stats">+10 HP</div>
+            <div class="stats">+10 Damage</div>
             <div class="ability">Two of your cards deal 10 more Damage.</div>
             <div class="caption"></div>
         </div>
@@ -403,7 +403,7 @@
         <div class="card epic powerup">
             <div class="powerup-value">+10</div>
             <h2>Damage Boost</h2>
-            <div class="stats">+10 HP</div>
+            <div class="stats">+10 Damage</div>
             <div class="ability">All of your cards deal 10 more Damage.</div>
             <div class="caption"></div>
         </div>
@@ -433,7 +433,7 @@
                 <div class="stats">10 Coins</div>
                 <div class="ability">Guarantees 1 Common Character.</div>
                 <div class="button-container" style="display: flex; justify-content: center; align-items: center; gap: 20px;">
-                    <button onclick="base()">Buy</button>
+                    <button onclick="packsBase()">Buy</button>
                 </div>
             </div>
 
@@ -443,7 +443,7 @@
                 <div class="stats">20 Coins</div>
                 <div class="ability">Guarantees 1 Rare Character.</div>
                 <div class="button-container" style="display: flex; justify-content: center; align-items: center; gap: 20px;">
-                    <button onclick="ultra()">Buy</button>
+                    <button onclick="packsUltra()">Buy</button>
                 </div>
             </div>
 
@@ -453,13 +453,25 @@
                 <div class="stats">30 Coins</div>
                 <div class="ability">Guarantees 1 Epic Character.</div>
                 <div class="button-container" style="display: flex; justify-content: center; align-items: center; gap: 20px;">
-                    <button onclick="ultimate()">Buy</button>
+                    <button onclick="packsUltimate()">Buy</button>
                 </div>
             </div>
         </div>
 
         <div id="packsModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center;">
             <div id="packsContent" style="background: white; padding: 20px; border-radius: 10px; text-align: center; width: 300px;">
+            </div>
+        </div>
+        <div id="baseModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center;">
+            <div id="baseContent" style="background: white; padding: 20px; border-radius: 10px; text-align: center; width: 850px;">
+            </div>
+        </div>
+        <div id="ultraModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center;">
+            <div id="ultraContent" style="background: white; padding: 20px; border-radius: 10px; text-align: center; width: 850px;">
+            </div>
+        </div>
+        <div id="ultimateModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center;">
+            <div id="ultimateContent" style="background: white; padding: 20px; border-radius: 10px; text-align: center; width: 850px;">
             </div>
         </div>
         <script src="packs.js"></script>
