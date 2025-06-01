@@ -86,6 +86,10 @@ function showGameSection() {
 
     const grid = document.querySelector(".grid-wrapper");
     if (grid) grid.style.display = "block";
+
+    if (loggedInUser && typeof displayUserCollection === "function") {
+        displayUserCollection(loggedInUser);
+    }
 }
 
 function playAsGuest() {

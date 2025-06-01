@@ -124,7 +124,7 @@ const cardDetails = {
     powerupValue: "+10",
     title: "Damage Boost",
     stats: "+10 Damage",
-    ability: "Two of your cards deals 10 more Damage.",
+    ability: "Two of your cards deal 10 more Damage.",
     caption: ""
   },
   "10 Damage Boost Epic": {
@@ -134,7 +134,7 @@ const cardDetails = {
     powerupValue: "+10",
     title: "Damage Boost",
     stats: "+10 Damage",
-    ability: "All of your cards deals 10 more Damage.",
+    ability: "All of your cards deal 10 more Damage.",
     caption: ""
   },
 };
