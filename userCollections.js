@@ -145,12 +145,19 @@ const userCollections = {
         powerups: ["10 Health Boost Common"]
     },
     "John_LLTK": {
+        characters: ["Matteo Camilleri"],
+        powerups: ["10 Damage Boost Common", "10 Damage Boost Common"]
     },
     "danielrix08": {
+        characters: ["Luka Haber", "Luka Haber"],
+        powerups: ["10 Damage Boost Common"]
     },
     "Matteo": {
+        characters: ["John Gatt", "John Gatt", "Matteo Camilleri"]
     },
     "Kennybat1n1": {
+        characters: ["John Gatt", "Daniel Vella"],
+        powerups: ["10 Damage Boost Common"]
     }
 };
 
