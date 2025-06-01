@@ -26,6 +26,7 @@
             background-color: #000000;
             overflow: hidden;
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
     	}
     	nav a {
@@ -40,6 +41,9 @@
             background-color: #00ff00;
             color: #000000;
     	}
+        nav a.active {
+            font-weight: bold;
+        }
     	.images-container {
             display: flex;
             justify-content: center;
@@ -121,7 +125,7 @@
     <header>
         <h1>BÃT1N1</h1>
         <nav>
-    	    <a href="index.html">Home</a>
+    	    <a href="index.html" class="active">Home</a>
 	        <a href="aboutus.html">About Us</a>
             <a href="games.html">Games</a>
     	    <a href="archive.html">Archive</a>

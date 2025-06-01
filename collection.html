@@ -26,6 +26,7 @@
             background-color: #000000;
             overflow: hidden;
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
         }
         nav a {
@@ -39,6 +40,9 @@
         nav a:hover {
             background-color: #00ff00;
 	        color: #000000;
+        }
+        nav a.active {
+            font-weight: bold;
         }
         .title {
             font-size: 28px;
@@ -278,7 +282,7 @@
 	        <a href="aboutus.html">About Us</a>
             <a href="games.html">Games</a>
             <a href="market.html">Market</a>
-            <a href="collection.html">Collection</a>
+            <a href="collection.html" class="active">Collection</a>
     	    <a href="archive.html">Archive</a>
     	</nav>
     </header>

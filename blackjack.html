@@ -29,6 +29,7 @@
             background-color: #000000;
             overflow: hidden;
             display: flex;
+			flex-wrap: wrap;
             justify-content: center;
         }
         nav a {
@@ -42,6 +43,9 @@
         nav a:hover {
             background-color: #00ff00;
             color: #000000;
+        }
+		nav a.active {
+            font-weight: bold;
         }
 	    img {
     	    max-width: 90%;
@@ -95,8 +99,8 @@
     	    color: #00ff00;
 	    }
 	    button:hover:disabled {
-        background-color: #557555;
-		color: black;
+        	background-color: #557555;
+			color: black;
         }
 	    .game-status {
     	    position: fixed;
