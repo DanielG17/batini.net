@@ -1,9 +1,9 @@
 // Card data
 const cardPool = {
     Character: {
-        Common: ["Matteo Camilleri", "Daniel Grech", "Luka Haber"],
+        Common: ["Matteo Camilleri", "Daniel Grech", "Luka Haber", "Felix Agius"],
         Rare: ["Daniel Vella", "Kenneth Micallef", "Ryan Curmi"],
-        Epic: ["John Gatt"]
+        Epic: ["John Gatt", "Kieran Calleja"]
     },
     Powerup: {
         Common: ["10 Health Boost Common", "10 Damage Boost Common"],
@@ -20,6 +20,16 @@ const cardDetails = {
     hp: 130,
     damage: 25,
     ability: 'Special: "Disappearing Act"',
+    caption: "Caption: TBC"
+  },
+  "Kieran Calleja": {
+    type: "Character",
+    rarity: "Epic",
+    //image: "kiskis.jpg",
+    image: null,
+    hp: 110,
+    damage: 30,
+    ability: 'Special: "Brainrot"',
     caption: "Caption: TBC"
   },
   "Daniel Vella": {
@@ -65,6 +75,16 @@ const cardDetails = {
     hp: 100,
     damage: 20,
     ability: 'Special: "Nose Attack"',
+    caption: "Caption: TBC"
+  },
+  "Felix Agius": {
+    type: "Character",
+    rarity: "Common",
+    //image: "felix.jpg",
+    image: null,
+    hp: 90,
+    damage: 30,
+    ability: 'Special: "Confusion"',
     caption: "Caption: TBC"
   },
   "Luka Haber": {
