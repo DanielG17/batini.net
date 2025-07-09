@@ -216,7 +216,7 @@
         </div>
     </div>
     <script src="accounts.js"></script>
-    <h2><br>Final Day PREDICTIONS</h2>
+    <h2><br>Matchday 1 PREDICTIONS</h2>
 
     <div id="gameSection" style="display: none; text-align: center; margin-top: 20px;">
         <div id="fixturesContainer"></div>
@@ -260,23 +260,23 @@
             "Fulham": { code: "FUL", color: "#000000", short: "M" },
             "Crystal Palace": { code: "CRY", color: "#1B458F", short: "P" },
             "Wolves": { code: "WOL", color: "#FDB913", short: "O" },
-            "Burnley": { code: "LEI", color: "#0036A7", short: "Y" },
+            "Burnley": { code: "BUR", color: "#630F33", short: "Y" },
             "Bournemouth": { code: "BOU", color: "#DA291C", short: "R" },
             "Brentford": { code: "BRE", color: "#E30613", short: "D" },
-            "Leeds": { code: "IPS", color: "#005599", short: "G" },
-            "Sunderland": { code: "SOU", color: "#D71920", short: "S" }
+            "Leeds": { code: "LEE", color: "#FFCD00", short: "G" },
+            "Sunderland": { code: "SUN", color: "#D71920", short: "S" }
         };
         const fixtures = [
-            { home: "Wolves", away: "Brentford" },
-            { home: "Tottenham", away: "Brighton" },
-            { home: "Sunderland", away: "Arsenal" },
-            { home: "Nottingham Forest", away: "Chelsea"},
-            { home: "Newcastle", away: "Everton" },
-            { home: "Manchester United", away: "Aston Villa" },
-            { home: "Liverpool", away: "Crystal Palace" },
-            { home: "Leeds", away: "West Ham" },
-            { home: "Fulham", away: "Manchester City" },
-            { home: "Bournemouth", away: "Burnley" }
+            { home: "Liverpool", away: "Bournemouth" },
+            { home: "Aston Villa", away: "Newcastle" },
+            { home: "Brighton", away: "Fulham" },
+            { home: "Sunderland", away: "West Ham"},
+            { home: "Tottenham", away: "Burnley" },
+            { home: "Wolves", away: "Manchester City" },
+            { home: "Nottingham Forest", away: "Brentford" },
+            { home: "Chelsea", away: "Crystal Palace" },
+            { home: "Manchester United", away: "Arsenal" },
+            { home: "Leeds", away: "Everton" }
         ];
 
         function showGameSection() {
@@ -335,7 +335,7 @@
             }
 
             totalPredictions = Object.keys(userPredictions).length;
-            document.querySelector("#submit h2:last-of-type").innerText = `38: ${loggedInUser}: ${predictions}`;
+            document.querySelector("#submit h2:last-of-type").innerText = `1: ${loggedInUser}: ${predictions}`;
         }
 
         function submit() {
