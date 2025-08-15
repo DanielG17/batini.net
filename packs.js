@@ -90,8 +90,7 @@ const cardDetails = {
   "Luka Haber": {
     type: "Character",
     rarity: "Common",
-    //image: "luka.jpg",
-    image: null,
+    image: "luka.jpeg",
     hp: 90,
     damage: 25,
     ability: 'Special: "Chaos"',
