@@ -16,7 +16,10 @@ const users = [
     { name: "David Grima", username: "david_g", password: "EmanuelOnTop", coins: "0"},
     { name: "Lucas Micallef", username: "Lucas M", password: "wwww", coins: "0"},
     { name: "Sebastian Portelli", username: "Sebastian_06", password: "Sebi", coins: "0"},
-    { name: "Ryan Curmi", username: "Ryan curmi", password: "123456", coins: "0"}
+    { name: "Ryan Curmi", username: "Ryan curmi", password: "123456", coins: "0"},
+    { name: "Zack Theuma", username: "zack_theuma", password: "ciksi123", coins: "0"},
+    { name: "Elisa Buttigieg", username: "elisabuttigieg", password: "ilovebatini", coins: "0"},
+    { name: "Kaitlyn Vella", username: "kaitvella", password: "reeshuno1fan", coins: "0"}
 ];
 
 function login() {
