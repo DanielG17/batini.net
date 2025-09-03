@@ -416,7 +416,7 @@
         <div id="betsContainer"></div>
         <br><br>
         <div id="balanceDisplay" class="balanceDisplay">
-            Balance: 50 Coins
+            New Balance: No change
         </div>
         <br><br>
         <div class="button-container" style="display: flex; justify-content: center; align-items: center; gap: 20px;">
@@ -453,38 +453,40 @@
         const userBets = {};
         let totalBets = Object.keys(userBets).length;
         let bets = "";
-        let balance = 50;
-
+        let balance = 0;
+        let newBalance = null;
         const hardCodedBets = [
             {
-                text: "Liverpool to score first",
+                text: "France to score first vs Ukraine",
                 details: "BET - 5 Coins  /  RETURN + 10 Coins",
                 cost: 5
             },
             {
-                text: "Man United to win",
-                details: "BET - 10 Coins /  RETURN + 20 Coins",
+                text: "England to keep a clean sheet vs Andorra",
+                details: "BET - 10 Coins /  RETURN + 15 Coins",
                 cost: 10
             },
             {
-                text: "Arsenal to keep a clean sheet",
-                details: "BET - 10 Coins  /  RETURN + 20 Coins",
+                text: "Isak to score vs Slovenia",
+                details: "BET - 10 Coins  /  RETURN + 15 Coins",
                 cost: 10
             },
             {
-                text: "Chelsea over 2.5 goals",
+                text: "Italy to lose vs Estonia",
+                details: "BET - 15 Coins  /  RETURN + 20 Coins",
+                cost: 15
+            },
+            {
+                text: "Malta to win vs Lithuania",
                 details: "BET - 20 Coins  /  RETURN + 30 Coins",
-                cost: 20
-            },
-            {
-                text: "Spurs to concede",
-                details: "BET - 20 Coins  /  RETURN + 40 Coins",
                 cost: 20
             }
         ];
 
         function showGameSection() {
+            balance = coins;
             document.getElementById("gameSection").style.display = "block";
+            document.getElementById("coinsContainer").innerText = `You have: ${coins} BĀT1N1 Coins`;
             document.getElementById("betsContainer").innerHTML = "";
             closeLogin();
             hardCodedBets.forEach((bet, index) => {
@@ -506,7 +508,6 @@
                 `
                 document.getElementById("betsContainer").appendChild(betDiv);
             });
-            updateBalanceUI();
         }
 
         function bet(betIndex, choice) {
@@ -536,19 +537,19 @@
         }
 
         function updateBalanceUI() {
+            newBalance = balance;
             for (let i = 0; i < 5; i++) {
                 if (userBets[i] === "BET") {
-                    balance -= hardCodedBets[i].cost;
+                    newBalance -= hardCodedBets[i].cost;
                 }
             }
-            console.log(balance);
-            document.getElementById("balanceDisplay").innerText = `Balance: ${balance} Coins`;
+            document.getElementById("balanceDisplay").innerText = `New Balance: ${newBalance} Coins`;
         }
 
         function submit() {
-            if (totalBets === 5 && balance >= 0) {
+            if (totalBets === 5 && newBalance >= 0) {
                 document.getElementById("submit").style.display = "flex";
-            } else if (balance >= 0) {
+            } else if (newBalance >= 0) {
                 document.getElementById("submitMissing").style.display = "flex";
             } else {
                 document.getElementById("submitNegative").style.display = "flex";
