@@ -87,6 +87,135 @@
             font-size: 18px;
             color: #333;
     	}
+        button {
+    	    background-color: #00ff00;
+    	    color: #000;
+    	    border: 2px solid #00ff00;
+    	    padding: 14px 25px;
+    	    font-size: 18px;
+    	    font-weight: bold;
+    	    border-radius: 5px;
+    	    cursor: pointer;
+    	    transition: background-color 0.3s, color 0.3s;
+	        width: 170px;
+	        margin-top: 10px;
+	        margin-right: 50px;
+	        margin-left: 50px;
+	        display: inline-block;
+    	    text-align: center;
+    	    line-height: normal;
+            height: 70px;
+        }
+        button:hover {
+    	    background-color: #000;
+    	    color: #00ff00;
+	    }
+        button:disabled {
+    	    background-color: #d3d3d3;
+    	    border: 2px solid #a9a9a9;
+    	    cursor: not-allowed;
+	    }
+        button:hover:disabled {
+            background-color: #557555;
+            color: black;
+        }
+        buttonTwo {
+    	    background-color: #00ff00;
+    	    color: #000;
+    	    border: 2px solid #00ff00;
+    	    padding: 14px 25px;
+    	    font-size: 18px;
+    	    font-weight: bold;
+    	    border-radius: 5px;
+    	    cursor: pointer;
+    	    transition: background-color 0.3s, color 0.3s;
+	        width: 200px;
+	        margin-top: 10px;
+	        margin-right: 50px;
+	        margin-left: 50px;
+	        display: inline-block;
+    	    text-align: center;
+    	    line-height: normal;
+            height: 20px;
+        }
+        buttonTwo:hover {
+    	    background-color: #000;
+    	    color: #00ff00;
+	    }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+        }
+        .modal-content input {
+            display: block;
+            width: 90%;
+            margin: 10px auto;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .coinsContainer {
+            font-family: 'Arial', sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffd700;
+            background-color: #222;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            margin: 0 auto;
+            border-radius: 10px;
+        }
+        #game-button {
+    	    color: white;
+            border: 0.1px solid transparent;
+    	    padding: 14px 25px;
+    	    font-size: 18px;
+    	    font-weight: bold;
+            border-radius: 5px;
+    	    cursor: pointer;
+    	    transition: background-color 0.3s, color 0.3s;
+	        width: 170px;
+	        margin-top: 10px;
+	        margin-right: 50px;
+	        margin-left: 50px;
+	        display: inline-block;
+    	    text-align: center;
+    	    line-height: normal;
+            height: 70px;
+        }
+        #game-button:hover {
+    	    border: 8px solid #00ff00;
+            border-radius: 5px;
+	    }
+        .balanceDisplay {
+            font-family: 'Arial', sans-serif;
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffd700;
+            background-color: #222;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            margin: 0 auto;
+            border-radius: 10px;
+        }
     	@media (max-width: 768px) {
             .countdown-container {
             	position: relative;
@@ -95,6 +224,26 @@
             	margin: 20px auto;
             	width: calc(100% - 40px);
             	max-width: 300px;
+            }
+            button {
+                width: 90%;
+                max-width: 250px;
+                height: 50px;
+                font-size: 18px;
+                padding: 12px 20px;
+                margin-right: 15px;
+	            margin-left: 15px;
+                display: block;
+            }
+            #game-button {
+                width: 90%;
+                max-width: 250px;
+                height: 70px;
+                font-size: 18px;
+                padding: 12px 20px;
+                margin-right: auto;
+	            margin-left: auto;
+                display: block;
             }
     	}
         .title {
@@ -117,6 +266,14 @@
             border-radius: 15px;
             vertical-align: middle;
             box-shadow: 0 0 8px #FFD700;
+        }
+        .divider {
+            border: none;
+            height: 2px;
+            margin: 40px auto;
+            width: 80%;
+            background: linear-gradient(to right, #00ff00, #000, #00ff00);
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
         }
 
     </style>
@@ -144,6 +301,7 @@
 	<a href="election.html">
     	<button style="background-color: #000000;
 		    color: #00ff00;
+            width: 195px;
 		    padding: 14px 25px;
 		    font-size: 18px;
 		    font-weight: bold;
@@ -175,6 +333,7 @@
                 <a href="stocks.html">
                     <button style="background-color: #000000;
                         color: #00ff00;
+                        width: 195px;
                         padding: 14px 25px;
                         font-size: 18px;
                         font-weight: bold;
@@ -279,5 +438,173 @@
 	    </div>
         -->
     </div>
+
+    <hr class="divider">
+    <h2>Log In to place your Bets</h2>
+    <div class="button-container" style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+        <button onclick="login()">Log In</button>
+    </div>
+
+    <div id="loginModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center;">
+        <div id="loginContent" style="background: white; padding: 20px; border-radius: 10px; text-align: center; width: 300px;">
+        </div>
+    </div>
+    <script src="accounts.js"></script>
+
+    <div id="gameSection" style="display: none; text-align: center; margin-top: 20px;">
+        <div id="coinsContainer" class="coinsContainer"></div>
+        <hr class="divider">
+        <div id="betsContainer"></div>
+        <br><br>
+        <div id="balanceDisplay" class="balanceDisplay">
+            Balance: 50 Coins
+        </div>
+        <br><br>
+        <div class="button-container" style="display: flex; justify-content: center; align-items: center; gap: 20px;">
+            <button id="submit-button" onclick="submit()">Submit</button>
+        </div>
+    </div>
+
+    <div id="submit" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center;">
+        <div class="modal-content" style="background: white; padding: 20px; border-radius: 10px; text-align: center; width: 300px;">
+            <h2>How's your luck?</h2>
+            <p>Send a screenshot of this message to Daniel Grech to register your bets</p>
+            <h2></h2>
+            <button onclick="closeSubmit()" style="background-color: #00ff00; color: #000; padding: 14px 25px; font-size: 18px; font-weight: bold; border-radius: 5px; cursor: pointer; width: 50%; transition: background-color 0.3s, color 0.3s; margin: 0 auto;">Close</button>
+        </div>
+    </div>
+
+    <div id="submitMissing" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center;">
+        <div class="modal-content" style="background: white; padding: 20px; border-radius: 10px; text-align: center; width: 300px;">
+            <h2>Missing bets!</h2>
+            <p>Go back and fill out the highlighted bets</p>
+            <button onclick="closeSubmitMissing()" style="background-color: #00ff00; color: #000; padding: 14px 25px; font-size: 18px; font-weight: bold; border-radius: 5px; cursor: pointer; width: 50%; transition: background-color 0.3s, color 0.3s; margin: 0 auto;">Continue</button>
+        </div>
+    </div>
+
+    <div id="submitNegative" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); justify-content: center; align-items: center;">
+        <div class="modal-content" style="background: white; padding: 20px; border-radius: 10px; text-align: center; width: 300px;">
+            <h2>You don't have enough BatiniCoins!</h2>
+            <p>Go back and change your bets</p>
+            <button onclick="closeSubmitNegative()" style="background-color: #00ff00; color: #000; padding: 14px 25px; font-size: 18px; font-weight: bold; border-radius: 5px; cursor: pointer; width: 50%; transition: background-color 0.3s, color 0.3s; margin: 0 auto;">Continue</button>
+        </div>
+    </div>
+
+    <script>
+        const userBets = {};
+        let totalBets = Object.keys(userBets).length;
+        let bets = "";
+        let balance = 50;
+
+        const hardCodedBets = [
+            {
+                text: "Liverpool to score first",
+                details: "BET - 5 Coins  /  RETURN + 10 Coins",
+                cost: 5
+            },
+            {
+                text: "Man United to win",
+                details: "BET - 10 Coins /  RETURN + 20 Coins",
+                cost: 10
+            },
+            {
+                text: "Arsenal to keep a clean sheet",
+                details: "BET - 10 Coins  /  RETURN + 20 Coins",
+                cost: 10
+            },
+            {
+                text: "Chelsea over 2.5 goals",
+                details: "BET - 20 Coins  /  RETURN + 30 Coins",
+                cost: 20
+            },
+            {
+                text: "Spurs to concede",
+                details: "BET - 20 Coins  /  RETURN + 40 Coins",
+                cost: 20
+            }
+        ];
+
+        function showGameSection() {
+            document.getElementById("gameSection").style.display = "block";
+            document.getElementById("betsContainer").innerHTML = "";
+            closeLogin();
+            hardCodedBets.forEach((bet, index) => {
+                const betDiv = document.createElement("div");
+                betDiv.id = `bet-${index}`;
+                betDiv.style.marginBottom = "15px";
+                betDiv.style.backgroundColor = "pink";
+                betDiv.innerHTML = `
+                    <br>
+                    <h3><strong>${bet.text}</strong></h3>
+                    <p style="color: blue;"><strong>${bet.details}</p>
+                    <button id="game-button" data-bet="${index}" data-choice="BET" 
+                        onclick="bet(${index}, 'BET')" 
+                        style="background-color: green; color: white;">BET</button>
+                    <button id="game-button" data-bet="${index}" data-choice="NO" 
+                        onclick="bet(${index}, 'NO')" 
+                        style="background-color: red; color: white;">NO</button>
+                    <br><br>
+                `
+                document.getElementById("betsContainer").appendChild(betDiv);
+            });
+            updateBalanceUI();
+        }
+
+        function bet(betIndex, choice) {
+            userBets[betIndex] = choice;
+            const betDiv = document.getElementById(`bet-${betIndex}`);
+            const buttons = betDiv.querySelectorAll("button");
+            buttons.forEach(button => {
+                button.style.border = "0.01px solid transparent";
+            });
+
+            const selectedButton = [...buttons].find(btn => btn.dataset.choice === choice);
+            if (selectedButton) {
+                selectedButton.style.border = "8px solid #00ff00";
+            }
+            betDiv.style.backgroundColor = "white";
+
+            bets = "";
+            for (let i = 0; i < 5; i++) {
+                if (userBets[i]) {
+                    bets += (userBets[i] === "BET" ? "B" : "N");
+                }
+            }
+
+            updateBalanceUI();
+            totalBets = Object.keys(userBets).length;
+            document.querySelector("#submit h2:last-of-type").innerText = `1: ${loggedInUser}: ${bets}`;
+        }
+/*
+        function updateBalanceUI() {
+            for (let i = 0; i < 5; i++) {
+                if (userBets[i] === "BET") {
+                    balance -= hardCodedBets[i].cost;
+                }
+            }
+            console.log(balance);
+            document.getElementById("balanceDisplay").innerText = `Balance: ${balance} Coins`;
+        }
+*/
+        function submit() {
+            if (totalBets === 5 && balance >= 0) {
+                document.getElementById("submit").style.display = "flex";
+            } else if (balance >= 0) {
+                document.getElementById("submitMissing").style.display = "flex";
+            } else {
+                document.getElementById("submitNegative").style.display = "flex";
+            }
+        }
+
+        function closeSubmit() {
+            document.getElementById("submit").style.display = "none";
+        }
+        function closeSubmitMissing(){
+            document.getElementById("submitMissing").style.display = "none";
+        }
+        function closeSubmitNegative(){
+            document.getElementById("submitNegative").style.display = "none";
+        }
+    </script>
 </body>
 </html>
