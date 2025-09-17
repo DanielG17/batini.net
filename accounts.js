@@ -19,7 +19,8 @@ const users = [
     { name: "Ryan Curmi", username: "Ryan curmi", password: "123456", coins: "0"},
     { name: "Zack Theuma", username: "zack_theuma", password: "ciksi123", coins: "0"},
     { name: "Elisa Buttigieg", username: "elisabuttigieg", password: "ilovebatini", coins: "0"},
-    { name: "Kaitlyn Vella", username: "kaitvella", password: "reeshuno1fan", coins: "0"}
+    { name: "Kaitlyn Vella", username: "kaitvella", password: "reeshuno1fan", coins: "0"},
+    { name: "Matthias Bonnici", username: "matthiasbonnici", password: "alabibilbajd", coins: "0"}
 ];
 
 function login() {
