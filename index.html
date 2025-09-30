@@ -393,7 +393,7 @@
 	    </div>
         -->
     </div>
-    <!--
+    
     <hr class="divider">
     <h2>Log In to place your Bets</h2>
     <div class="button-container" style="display: flex; justify-content: center; align-items: center; gap: 20px;">
@@ -444,7 +444,7 @@
             <button onclick="closeSubmitNegative()" style="background-color: #00ff00; color: #000; padding: 14px 25px; font-size: 18px; font-weight: bold; border-radius: 5px; cursor: pointer; width: 50%; transition: background-color 0.3s, color 0.3s; margin: 0 auto;">Continue</button>
         </div>
     </div>
-    -->
+    
     <script>
         const userBets = {};
         let totalBets = Object.keys(userBets).length;
@@ -453,29 +453,19 @@
         let newBalance = null;
         const hardCodedBets = [
             {
-                text: "France to score first vs Ukraine",
+                text: "Qala Saints to win vs Nadur Youngsters",
                 details: "BET - 5 Coins  /  RETURN + 10 Coins",
                 cost: 5
             },
             {
-                text: "England to keep a clean sheet vs Andorra",
-                details: "BET - 10 Coins /  RETURN + 15 Coins",
+                text: "Għajnsielem to score first vs Savina",
+                details: "BET - 5 Coins /  RETURN + 15 Coins",
+                cost: 5
+            },
+            {
+                text: "Xagħra United to win or draw vs Xewkija Tigers",
+                details: "BET - 10 Coins  /  RETURN + 25 Coins",
                 cost: 10
-            },
-            {
-                text: "Isak to score vs Slovenia",
-                details: "BET - 10 Coins  /  RETURN + 15 Coins",
-                cost: 10
-            },
-            {
-                text: "Italy to lose vs Estonia",
-                details: "BET - 15 Coins  /  RETURN + 20 Coins",
-                cost: 15
-            },
-            {
-                text: "Malta to win vs Lithuania",
-                details: "BET - 20 Coins  /  RETURN + 30 Coins",
-                cost: 20
             }
         ];
 
@@ -521,7 +511,7 @@
             betDiv.style.backgroundColor = "white";
 
             bets = "";
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 3; i++) {
                 if (userBets[i]) {
                     bets += (userBets[i] === "BET" ? "B" : "N");
                 }
@@ -529,12 +519,12 @@
 
             updateBalanceUI();
             totalBets = Object.keys(userBets).length;
-            document.querySelector("#submit h2:last-of-type").innerText = `1: ${loggedInUser}: ${bets}`;
+            document.querySelector("#submit h2:last-of-type").innerText = `2: ${loggedInUser}: ${bets}`;
         }
 
         function updateBalanceUI() {
             newBalance = balance;
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 3; i++) {
                 if (userBets[i] === "BET") {
                     newBalance -= hardCodedBets[i].cost;
                 }
@@ -543,7 +533,7 @@
         }
 
         function submit() {
-            if (totalBets === 5 && newBalance >= 0) {
+            if (totalBets === 3 && newBalance >= 0) {
                 document.getElementById("submit").style.display = "flex";
             } else if (newBalance >= 0) {
                 document.getElementById("submitMissing").style.display = "flex";
