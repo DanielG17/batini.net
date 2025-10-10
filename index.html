@@ -393,7 +393,7 @@
 	    </div>
         -->
     </div>
-    <!--
+    
     <hr class="divider">
     <h2>Log In to place your Bets</h2>
     <div class="button-container" style="display: flex; justify-content: center; align-items: center; gap: 20px;">
@@ -453,17 +453,17 @@
         let newBalance = null;
         const hardCodedBets = [
             {
-                text: "Qala Saints to win vs Nadur Youngsters",
+                text: "Portugal to win vs Hungary",
                 details: "BET - 5 Coins  /  RETURN + 10 Coins",
                 cost: 5
             },
             {
-                text: "Għajnsielem to score first vs Savina",
+                text: "France to keep clean sheet vs Iceland",
                 details: "BET - 5 Coins /  RETURN + 15 Coins",
                 cost: 5
             },
             {
-                text: "Xagħra United to win or draw vs Xewkija Tigers",
+                text: "Malta to win vs Bosnia Herzegovina",
                 details: "BET - 10 Coins  /  RETURN + 25 Coins",
                 cost: 10
             }
@@ -519,7 +519,7 @@
 
             updateBalanceUI();
             totalBets = Object.keys(userBets).length;
-            document.querySelector("#submit h2:last-of-type").innerText = `2: ${loggedInUser}: ${bets}`;
+            document.querySelector("#submit h2:last-of-type").innerText = `3: ${loggedInUser}: ${bets}`;
         }
 
         function updateBalanceUI() {
@@ -552,6 +552,6 @@
             document.getElementById("submitNegative").style.display = "none";
         }
     </script>
-    -->
+    
 </body>
 </html>
