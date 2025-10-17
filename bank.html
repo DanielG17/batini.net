@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank</title>
+    <meta property="og:title" content="BÃT1N1">
+    <meta property="og:description" content="Bank">
+    <meta property="og:url" content="https://danielg17.github.io/batini.net/bank.html">
+    <meta property="og:image" content="https://danielg17.github.io/batini.net/stickers.jpg">
+    <meta property="og:type" content="website">
+    <link rel="icon" href="icon.jpg" type="image/jpeg">
+    <link rel="shortcut icon" href="icon.jpg" type="image/jpeg">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0 0 50px 0;
+            text-align: center;
+        }
+        header {
+            background-color: #00ff00;
+            padding: 0.02px 0;
+    	}
+        nav {
+            background-color: #000000;
+            overflow: hidden;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        nav a {
+            color: #00ff00;
+            padding: 14px 20px;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+	        transition: background-color 0.3s, color 0.3s;
+        }
+        nav a:hover {
+            background-color: #00ff00;
+	        color: #000000;
+        }
+        nav a.active {
+            font-weight: bold;
+        }
+        .title {
+            font-size: 28px;
+            font-family: Arial, sans-serif;
+            text-shadow: 1px 1px 2px #00ff00;
+            margin-bottom: 20px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        .divider {
+            border: none;
+            height: 2px;
+            margin: 40px auto;
+            width: 80%;
+            background: linear-gradient(to right, #00ff00, #000, #00ff00);
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+        }
+        .bar-container {
+            width: 80%;
+            max-width: 700px;
+            margin: 30px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .bar-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .label {
+            width: 150px;
+            text-align: right;
+            color: black;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .bar {
+            position: relative;
+            flex-grow: 1;
+            background-color: #111;
+            border: 2px solid #00ff00;
+            height: 35px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .bar::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: calc(var(--value) / 90 * 100%);
+            background: #00ff00;
+            box-shadow: 0 0 10px #00ff00;
+            transition: width 0.8s ease-in-out;
+        }
+        .value {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #00ff00;
+            font-weight: bold;
+        }
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 15px rgba(0, 255, 0, 0.4); }
+            100% { box-shadow: 0 0 25px rgba(0, 255, 0, 0.8); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>BÃT1N1</h1>
+        <nav>
+    	    <a href="index.html">Home</a>
+	        <a href="aboutus.html">About Us</a>
+            <a href="games.html">Games</a>
+            <a href="bank.html" class="active">Bank</a>
+    	    <a href="archive.html">Archive</a>
+    	</nav>
+    </header>
+
+    <h2 class="title">BatiniCoins Leaderboard</h2>
+    <div class="bar-container">
+        <div class="bar-row">
+            <span class="label">denzil</span>
+            <div class="bar" style="--value: 75;">
+                <span class="value">75</span>
+            </div>
+        </div>
+        <div class="bar-row">
+            <span class="label">dan_grec</span>
+            <div class="bar" style="--value: 68;">
+                <span class="value">68</span>
+            </div>
+        </div>
+        <div class="bar-row">
+            <span class="label">kieran_kiskis</span>
+            <div class="bar" style="--value: 48;">
+                <span class="value">48</span>
+            </div>
+        </div>
+        <div class="bar-row">
+            <span class="label">danielrix08</span>
+            <div class="bar" style="--value: 30;">
+                <span class="value">30</span>
+            </div>
+        </div>
+        <div class="bar-row">
+            <span class="label">jake_sax</span>
+            <div class="bar" style="--value: 30;">
+                <span class="value">30</span>
+            </div>
+        </div>
+        <div class="bar-row">
+            <span class="label">gabriel_bokli</span>
+            <div class="bar" style="--value: 27;">
+                <span class="value">27</span>
+            </div>
+        </div>
+        <div class="bar-row">
+            <span class="label">Kennybat1n1</span>
+            <div class="bar" style="--value: 20;">
+                <span class="value">20</span>
+            </div>
+        </div>
+        <div class="bar-row">
+            <span class="label">Matteo</span>
+            <div class="bar" style="--value: 15;">
+                <span class="value">15</span>
+            </div>
+        </div>
+        <div class="bar-row">
+            <span class="label">John_LLTK</span>
+            <div class="bar" style="--value: 10;">
+                <span class="value">10</span>
+            </div>
+        </div>
+        <div class="bar-row">
+            <span class="label">Ethan</span>
+            <div class="bar" style="--value: 10;">
+                <span class="value">10</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
