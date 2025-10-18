@@ -367,6 +367,24 @@
 	    </div>
         -->
     </div>
+
+    <hr class="divider">
+    <h2 class="title">Clash Corner</h2>
+    <h3>By our resident Royale rankers Grech and Micallef</h3>
+    <h3>This week's:</h3>
+    <h2>HATED CARDS</h2>
+    <div class="images-container">
+        <div>
+            <img src="sports/prince.jpg" alt="Image 3" style="height: 250px; border: 5px yellow">
+        </div>
+        <div>
+            <img src="sports/bossbandit.webp" alt="Image 4" style="height: 250px; border: 5px yellow">
+        </div>
+        <div>
+            <img src="sports/archers.webp" alt="Image 5" style="height: 250px; border: 5px yellow">
+        </div>
+    </div>
+
     <!--
     <hr class="divider">
     <h2>Log In to place your Bets</h2>
@@ -427,19 +445,29 @@
         let newBalance = null;
         const hardCodedBets = [
             {
-                text: "Portugal to win vs Hungary",
-                details: "BET - 5 Coins  /  RETURN + 10 Coins",
-                cost: 5
-            },
-            {
-                text: "France to keep clean sheet vs Iceland",
-                details: "BET - 5 Coins /  RETURN + 15 Coins",
-                cost: 5
-            },
-            {
-                text: "Malta to win vs Bosnia Herzegovina",
-                details: "BET - 10 Coins  /  RETURN + 25 Coins",
+                text: "Daniel Vella to win Footvolley league",
+                details: "BET - 10 Coins  /  RETURN + 15 Coins",
                 cost: 10
+            },
+            {
+                text: "Daniel Grech to win Footvolley league",
+                details: "BET - 10 Coins  /  RETURN + 18 Coins",
+                cost: 10
+            },
+            {
+                text: "Gabriel Xerri to win Footvolley league",
+                details: "BET - 15 Coins  /  RETURN + 25 Coins",
+                cost: 15
+            },
+            {
+                text: "Jake Sacco to win Footvolley league",
+                details: "BET - 20 Coins  /  RETURN + 32 Coins",
+                cost: 20
+            },
+            {
+                text: "Matteo Camilleri to win Footvolley league",
+                details: "BET - 20 Coins  /  RETURN + 35 Coins",
+                cost: 20
             }
         ];
 
@@ -485,7 +513,7 @@
             betDiv.style.backgroundColor = "white";
 
             bets = "";
-            for (let i = 0; i < 3; i++) {
+            for (let i = 0; i < 5; i++) {
                 if (userBets[i]) {
                     bets += (userBets[i] === "BET" ? "B" : "N");
                 }
@@ -493,7 +521,7 @@
 
             updateBalanceUI();
             totalBets = Object.keys(userBets).length;
-            document.querySelector("#submit h2:last-of-type").innerText = `3: ${loggedInUser}: ${bets}`;
+            document.querySelector("#submit h2:last-of-type").innerText = `4: ${loggedInUser}: ${bets}`;
         }
 
         function updateBalanceUI() {
@@ -507,7 +535,7 @@
         }
 
         function submit() {
-            if (totalBets === 3 && newBalance >= 0) {
+            if (totalBets === 5 && newBalance >= 0) {
                 document.getElementById("submit").style.display = "flex";
             } else if (newBalance >= 0) {
                 document.getElementById("submitMissing").style.display = "flex";
