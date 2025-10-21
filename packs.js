@@ -19,7 +19,8 @@ const cardDetails = {
     image: "john.jpg",
     hp: 130,
     damage: 25,
-    ability: 'Special: "Disappearing Act"'
+    ability: 'Special: "Disappearing Act"',
+    caption: ""
   },
   "Kieran Calleja": {
     type: "Character",
@@ -27,7 +28,8 @@ const cardDetails = {
     image: "kiskis.jpg",
     hp: 110,
     damage: 30,
-    ability: 'Special: "Brainrot"'
+    ability: 'Special: "Brainrot"',
+    caption: ""
   },
   "Daniel Vella": {
     type: "Character",
@@ -35,7 +37,8 @@ const cardDetails = {
     image: "rixu.jpg",
     hp: 120,
     damage: 35,
-    ability: 'Special: "Rixu Moment"'
+    ability: 'Special: "Rixu Moment"',
+    caption: ""
   },
   "Kenneth Micallef": {
     type: "Character",
@@ -43,7 +46,8 @@ const cardDetails = {
     image: "kenneth.jpg",
     hp: 140,
     damage: 30,
-    ability: 'Special: "Waterfall"'
+    ability: 'Special: "Waterfall"',
+    caption: ""
   },
   "Ryan Curmi": {
     type: "Character",
@@ -51,7 +55,8 @@ const cardDetails = {
     image: "ryan.jpg",
     hp: 130,
     damage: 30,
-    ability: 'Special: "Little Kids"'
+    ability: 'Special: "Little Kids"',
+    caption: ""
   },
   "Matteo Camilleri": {
     type: "Character",
@@ -59,7 +64,8 @@ const cardDetails = {
     image: "matteo.jpg",
     hp: 110,
     damage: 35,
-    ability: 'Special: "Top Bins"'
+    ability: 'Special: "Top Bins"',
+    caption: ""
   },
   "Daniel Grech": {
     type: "Character",
@@ -67,7 +73,8 @@ const cardDetails = {
     image: "grech.jpeg",
     hp: 100,
     damage: 20,
-    ability: 'Special: "Nose Attack"'
+    ability: 'Special: "Nose Attack"',
+    caption: ""
   },
   "Felix Agius": {
     type: "Character",
@@ -76,7 +83,8 @@ const cardDetails = {
     image: null,
     hp: 90,
     damage: 30,
-    ability: 'Special: "Confusion"'
+    ability: 'Special: "Confusion"',
+    caption: ""
   },
   "Luka Haber": {
     type: "Character",
@@ -84,7 +92,8 @@ const cardDetails = {
     image: "luka.jpeg",
     hp: 90,
     damage: 25,
-    ability: 'Special: "Chaos"'
+    ability: 'Special: "Chaos"',
+    caption: ""
   },
   "30 Health Boost Common": {
     type: "Powerup",
@@ -93,7 +102,8 @@ const cardDetails = {
     powerupValue: "+30",
     title: "Health Boost",
     stats: "+30 HP",
-    ability: "Restores 30 HP to one of your cards."
+    ability: "Restores 30 HP to one of your cards.",
+    caption: ""
   },
   "30 Health Boost Rare": {
     type: "Powerup",
@@ -102,7 +112,8 @@ const cardDetails = {
     powerupValue: "+30",
     title: "Health Boost",
     stats: "+30 HP",
-    ability: "Restores 30 HP to two of your cards."
+    ability: "Restores 30 HP to two of your cards.",
+    caption: ""
   },
   "30 Health Boost Epic": {
     type: "Powerup",
@@ -111,7 +122,8 @@ const cardDetails = {
     powerupValue: "+30",
     title: "Health Boost",
     stats: "+30 HP",
-    ability: "Restores 30 HP to all of your cards."
+    ability: "Restores 30 HP to all of your cards.",
+    caption: ""
   },
   "10 Damage Boost Common": {
     type: "Powerup",
@@ -120,7 +132,8 @@ const cardDetails = {
     powerupValue: "+10",
     title: "Damage Boost",
     stats: "+10 Damage",
-    ability: "One of your cards deals 10 more Damage."
+    ability: "One of your cards deals 10 more Damage.",
+    caption: ""
   },
   "10 Damage Boost Rare": {
     type: "Powerup",
@@ -129,7 +142,8 @@ const cardDetails = {
     powerupValue: "+10",
     title: "Damage Boost",
     stats: "+10 Damage",
-    ability: "Two of your cards deal 10 more Damage."
+    ability: "Two of your cards deal 10 more Damage.",
+    caption: ""
   },
   "10 Damage Boost Epic": {
     type: "Powerup",
@@ -138,7 +152,8 @@ const cardDetails = {
     powerupValue: "+10",
     title: "Damage Boost",
     stats: "+10 Damage",
-    ability: "All of your cards deal 10 more Damage."
+    ability: "All of your cards deal 10 more Damage.",
+    caption: ""
   },
 };
 
