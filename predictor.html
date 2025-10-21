@@ -158,6 +158,9 @@
 	        <a href="aboutus.html">About Us</a>
             <a href="games.html">Games</a>
             <a href="bank.html">Bank</a>
+            <a href="market.html">Market</a>
+            <a href="collection.html">Collection</a>
+            <a href="battle.html">Battle</a>
     	    <a href="archive.html">Archive</a>
     	</nav>
     </header>
@@ -171,7 +174,7 @@
         </div>
     </div>
     <script src="accounts.js"></script>
-    <h2><br>Matchday 8 PREDICTIONS</h2>
+    <h2><br>Matchday 9 PREDICTIONS</h2>
 
     <div id="gameSection" style="display: none; text-align: center; margin-top: 20px;">
         <div id="fixturesContainer"></div>
@@ -222,16 +225,16 @@
             "Sunderland": { code: "SUN", color: "#D71920", short: "S" }
         };
         const fixtures = [
-            { home: "Nottingham Forest", away: "Chelsea" },
-            { home: "Brighton", away: "Newcastle" },
-            { home: "Sunderland", away: "Wolves" },
-            { home: "Manchester City", away: "Everton"},
-            { home: "Crystal Palace", away: "Bournemouth" },
-            { home: "Burnley", away: "Leeds" },
-            { home: "Fulham", away: "Arsenal" },
-            { home: "Tottenham", away: "Aston Villa" },
-            { home: "Liverpool", away: "Manchester United" },
-            { home: "West Ham", away: "Brentford" }
+            { home: "Leeds", away: "West Ham" },
+            { home: "Chelsea", away: "Sunderland" },
+            { home: "Newcastle", away: "Fulham" },
+            { home: "Manchester United", away: "Brighton"},
+            { home: "Brentford", away: "Liverpool" },
+            { home: "Bournemouth", away: "Nottingham Forest" },
+            { home: "Arsenal", away: "Crystal Palace" },
+            { home: "Aston Villa", away: "Manchester City" },
+            { home: "Wolves", away: "Burnley" },
+            { home: "Everton", away: "Tottenham" }
         ];
 
         function showGameSection() {
@@ -288,7 +291,7 @@
             }
 
             totalPredictions = Object.keys(userPredictions).length;
-            document.querySelector("#submit h2:last-of-type").innerText = `8: ${loggedInUser}: ${predictions}`;
+            document.querySelector("#submit h2:last-of-type").innerText = `9: ${loggedInUser}: ${predictions}`;
         }
 
         function submit() {

@@ -6,9 +6,9 @@ const cardPool = {
         Epic: ["John Gatt", "Kieran Calleja"]
     },
     Powerup: {
-        Common: ["10 Health Boost Common", "10 Damage Boost Common"],
-        Rare: ["10 Health Boost Rare", "10 Damage Boost Rare"],
-        Epic: ["10 Health Boost Epic", "10 Damage Boost Epic"]
+        Common: ["30 Health Boost Common", "10 Damage Boost Common"],
+        Rare: ["30 Health Boost Rare", "10 Damage Boost Rare"],
+        Epic: ["30 Health Boost Epic", "10 Damage Boost Epic"]
     }
 };
 
@@ -20,17 +20,16 @@ const cardDetails = {
     hp: 130,
     damage: 25,
     ability: 'Special: "Disappearing Act"',
-    caption: "Caption: TBC"
+    caption: ""
   },
   "Kieran Calleja": {
     type: "Character",
     rarity: "Epic",
-    //image: "kiskis.jpg",
-    image: null,
+    image: "kiskis.jpg",
     hp: 110,
     damage: 30,
     ability: 'Special: "Brainrot"',
-    caption: "Caption: TBC"
+    caption: ""
   },
   "Daniel Vella": {
     type: "Character",
@@ -39,7 +38,7 @@ const cardDetails = {
     hp: 120,
     damage: 35,
     ability: 'Special: "Rixu Moment"',
-    caption: "Caption: TBC"
+    caption: ""
   },
   "Kenneth Micallef": {
     type: "Character",
@@ -48,7 +47,7 @@ const cardDetails = {
     hp: 140,
     damage: 30,
     ability: 'Special: "Waterfall"',
-    caption: "Caption: TBC"
+    caption: ""
   },
   "Ryan Curmi": {
     type: "Character",
@@ -57,16 +56,16 @@ const cardDetails = {
     hp: 130,
     damage: 30,
     ability: 'Special: "Little Kids"',
-    caption: "Caption: TBC"
+    caption: ""
   },
   "Matteo Camilleri": {
     type: "Character",
     rarity: "Common",
     image: "matteo.jpg",
     hp: 110,
-    damage: 40,
+    damage: 35,
     ability: 'Special: "Top Bins"',
-    caption: "Caption: TBC"
+    caption: ""
   },
   "Daniel Grech": {
     type: "Character",
@@ -75,7 +74,7 @@ const cardDetails = {
     hp: 100,
     damage: 20,
     ability: 'Special: "Nose Attack"',
-    caption: "Caption: TBC"
+    caption: ""
   },
   "Felix Agius": {
     type: "Character",
@@ -85,7 +84,7 @@ const cardDetails = {
     hp: 90,
     damage: 30,
     ability: 'Special: "Confusion"',
-    caption: "Caption: TBC"
+    caption: ""
   },
   "Luka Haber": {
     type: "Character",
@@ -94,36 +93,36 @@ const cardDetails = {
     hp: 90,
     damage: 25,
     ability: 'Special: "Chaos"',
-    caption: "Caption: TBC"
+    caption: ""
   },
-  "10 Health Boost Common": {
+  "30 Health Boost Common": {
     type: "Powerup",
     rarity: "Common",
     image: null,
-    powerupValue: "+10",
+    powerupValue: "+30",
     title: "Health Boost",
-    stats: "+10 HP",
-    ability: "Restores 10 HP to one of your cards.",
+    stats: "+30 HP",
+    ability: "Restores 30 HP to one of your cards.",
     caption: ""
   },
-  "10 Health Boost Rare": {
+  "30 Health Boost Rare": {
     type: "Powerup",
     rarity: "Rare",
     image: null,
-    powerupValue: "+10",
+    powerupValue: "+30",
     title: "Health Boost",
-    stats: "+10 HP",
-    ability: "Restores 10 HP to two of your cards.",
+    stats: "+30 HP",
+    ability: "Restores 30 HP to two of your cards.",
     caption: ""
   },
-  "10 Health Boost Epic": {
+  "30 Health Boost Epic": {
     type: "Powerup",
     rarity: "Epic",
     image: null,
-    powerupValue: "+10",
+    powerupValue: "+30",
     title: "Health Boost",
-    stats: "+10 HP",
-    ability: "Restores 10 HP to all of your cards.",
+    stats: "+30 HP",
+    ability: "Restores 30 HP to all of your cards.",
     caption: ""
   },
   "10 Damage Boost Common": {
@@ -159,24 +158,25 @@ const cardDetails = {
 };
 
 const userCollections = {
-    "1": {
-        characters: ["Matteo Camilleri", "Luka Haber"],
-        powerups: ["10 Health Boost Common"]
-    },
-    "John_LLTK": {
-        characters: ["Matteo Camilleri"],
-        powerups: ["10 Damage Boost Common", "10 Damage Boost Common"]
+    "dan_grec": {
+        characters: [],
+        powerups: []
     },
     "danielrix08": {
-        characters: ["Luka Haber", "Luka Haber"],
-        powerups: ["10 Damage Boost Common"]
+        characters: [],
+        powerups: []
     },
     "Matteo": {
-        characters: ["John Gatt", "John Gatt", "Matteo Camilleri"]
+        characters: [],
+        powerups: []
     },
     "Kennybat1n1": {
-        characters: ["John Gatt", "Daniel Vella"],
-        powerups: ["10 Damage Boost Common"]
+        characters: [],
+        powerups: []
+    },
+    "gabriel_bokli": {
+        characters: [],
+        powerups: []
     }
 };
 

@@ -6,9 +6,9 @@ const cardPool = {
         Epic: ["John Gatt", "Kieran Calleja"]
     },
     Powerup: {
-        Common: ["10 Health Boost Common", "10 Damage Boost Common"],
-        Rare: ["10 Health Boost Rare", "10 Damage Boost Rare"],
-        Epic: ["10 Health Boost Epic", "10 Damage Boost Epic"]
+        Common: ["30 Health Boost Common", "10 Damage Boost Common"],
+        Rare: ["30 Health Boost Rare", "10 Damage Boost Rare"],
+        Epic: ["30 Health Boost Epic", "10 Damage Boost Epic"]
     }
 };
 
@@ -19,18 +19,15 @@ const cardDetails = {
     image: "john.jpg",
     hp: 130,
     damage: 25,
-    ability: 'Special: "Disappearing Act"',
-    caption: "Caption: TBC"
+    ability: 'Special: "Disappearing Act"'
   },
   "Kieran Calleja": {
     type: "Character",
     rarity: "Epic",
-    //image: "kiskis.jpg",
-    image: null,
+    image: "kiskis.jpg",
     hp: 110,
     damage: 30,
-    ability: 'Special: "Brainrot"',
-    caption: "Caption: TBC"
+    ability: 'Special: "Brainrot"'
   },
   "Daniel Vella": {
     type: "Character",
@@ -38,8 +35,7 @@ const cardDetails = {
     image: "rixu.jpg",
     hp: 120,
     damage: 35,
-    ability: 'Special: "Rixu Moment"',
-    caption: "Caption: TBC"
+    ability: 'Special: "Rixu Moment"'
   },
   "Kenneth Micallef": {
     type: "Character",
@@ -47,8 +43,7 @@ const cardDetails = {
     image: "kenneth.jpg",
     hp: 140,
     damage: 30,
-    ability: 'Special: "Waterfall"',
-    caption: "Caption: TBC"
+    ability: 'Special: "Waterfall"'
   },
   "Ryan Curmi": {
     type: "Character",
@@ -56,17 +51,15 @@ const cardDetails = {
     image: "ryan.jpg",
     hp: 130,
     damage: 30,
-    ability: 'Special: "Little Kids"',
-    caption: "Caption: TBC"
+    ability: 'Special: "Little Kids"'
   },
   "Matteo Camilleri": {
     type: "Character",
     rarity: "Common",
     image: "matteo.jpg",
     hp: 110,
-    damage: 40,
-    ability: 'Special: "Top Bins"',
-    caption: "Caption: TBC"
+    damage: 35,
+    ability: 'Special: "Top Bins"'
   },
   "Daniel Grech": {
     type: "Character",
@@ -74,8 +67,7 @@ const cardDetails = {
     image: "grech.jpeg",
     hp: 100,
     damage: 20,
-    ability: 'Special: "Nose Attack"',
-    caption: "Caption: TBC"
+    ability: 'Special: "Nose Attack"'
   },
   "Felix Agius": {
     type: "Character",
@@ -84,8 +76,7 @@ const cardDetails = {
     image: null,
     hp: 90,
     damage: 30,
-    ability: 'Special: "Confusion"',
-    caption: "Caption: TBC"
+    ability: 'Special: "Confusion"'
   },
   "Luka Haber": {
     type: "Character",
@@ -93,38 +84,34 @@ const cardDetails = {
     image: "luka.jpeg",
     hp: 90,
     damage: 25,
-    ability: 'Special: "Chaos"',
-    caption: "Caption: TBC"
+    ability: 'Special: "Chaos"'
   },
-  "10 Health Boost Common": {
+  "30 Health Boost Common": {
     type: "Powerup",
     rarity: "Common",
     image: null,
-    powerupValue: "+10",
+    powerupValue: "+30",
     title: "Health Boost",
-    stats: "+10 HP",
-    ability: "Restores 10 HP to one of your cards.",
-    caption: ""
+    stats: "+30 HP",
+    ability: "Restores 30 HP to one of your cards."
   },
-  "10 Health Boost Rare": {
+  "30 Health Boost Rare": {
     type: "Powerup",
     rarity: "Rare",
     image: null,
-    powerupValue: "+10",
+    powerupValue: "+30",
     title: "Health Boost",
-    stats: "+10 HP",
-    ability: "Restores 10 HP to two of your cards.",
-    caption: ""
+    stats: "+30 HP",
+    ability: "Restores 30 HP to two of your cards."
   },
-  "10 Health Boost Epic": {
+  "30 Health Boost Epic": {
     type: "Powerup",
     rarity: "Epic",
     image: null,
-    powerupValue: "+10",
+    powerupValue: "+30",
     title: "Health Boost",
-    stats: "+10 HP",
-    ability: "Restores 10 HP to all of your cards.",
-    caption: ""
+    stats: "+30 HP",
+    ability: "Restores 30 HP to all of your cards."
   },
   "10 Damage Boost Common": {
     type: "Powerup",
@@ -133,8 +120,7 @@ const cardDetails = {
     powerupValue: "+10",
     title: "Damage Boost",
     stats: "+10 Damage",
-    ability: "One of your cards deals 10 more Damage.",
-    caption: ""
+    ability: "One of your cards deals 10 more Damage."
   },
   "10 Damage Boost Rare": {
     type: "Powerup",
@@ -143,8 +129,7 @@ const cardDetails = {
     powerupValue: "+10",
     title: "Damage Boost",
     stats: "+10 Damage",
-    ability: "Two of your cards deal 10 more Damage.",
-    caption: ""
+    ability: "Two of your cards deal 10 more Damage."
   },
   "10 Damage Boost Epic": {
     type: "Powerup",
@@ -153,8 +138,7 @@ const cardDetails = {
     powerupValue: "+10",
     title: "Damage Boost",
     stats: "+10 Damage",
-    ability: "All of your cards deal 10 more Damage.",
-    caption: ""
+    ability: "All of your cards deal 10 more Damage."
   },
 };
 
@@ -195,9 +179,9 @@ function packsBase() {
     document.getElementById("packsModal").style.display = "flex";
     document.getElementById("packsContent").innerHTML = `
         <h2>Confirm Base Pack Purchase</h2>
-        <h3>Cost: 10 Coins</h3>
-        <buttonTwo onclick="base()" style="background-color: #00ff00; color: #000; padding: 14px 25px; font-size: 18px; font-weight: bold; border-radius: 5px; cursor: pointer; width: 50%; transition: background-color 0.3s, color 0.3s; margin: 0 auto; margin-bottom: 10px;">Buy</buttonTwo><br>
-        <buttonTwo onclick="closePacks()" style="background-color: #ff0000; color: #fff; padding: 14px 25px; font-size: 18px; font-weight: bold; border: 0px; cursor: pointer; width: 50%; margin-top: 10px; transition: background-color 0.3s, color 0.3s; margin: 0 auto;">Cancel</buttonTwo>
+        <h3>Cost: 15 Coins</h3>
+        <button onclick="base()" style="background-color: #00ff00; color: #000; padding: 14px 25px; font-size: 18px; font-weight: bold; border-radius: 5px; cursor: pointer; width: 50%; transition: background-color 0.3s, color 0.3s; margin: 0 auto; margin-bottom: 10px;">Buy</button><br>
+        <button onclick="closePacks()" style="background-color: #ff0000; color: #fff; padding: 14px 25px; font-size: 18px; font-weight: bold; border: 0px; cursor: pointer; width: 50%; margin-top: 10px; transition: background-color 0.3s, color 0.3s; margin: 0 auto;">Cancel</button>
     `;
 }
 
@@ -206,9 +190,9 @@ function packsUltra() {
     document.getElementById("packsModal").style.display = "flex";
     document.getElementById("packsContent").innerHTML = `
         <h2>Confirm Ultra Pack Purchase</h2>
-        <h3>Cost: 20 Coins</h3>
-        <buttonTwo onclick="ultra()" style="background-color: #00ff00; color: #000; padding: 14px 25px; font-size: 18px; font-weight: bold; border-radius: 5px; cursor: pointer; width: 50%; transition: background-color 0.3s, color 0.3s; margin: 0 auto; margin-bottom: 10px;">Buy</buttonTwo><br>
-        <buttonTwo onclick="closePacks()" style="background-color: #ff0000; color: #fff; padding: 14px 25px; font-size: 18px; font-weight: bold; border: 0px; cursor: pointer; width: 50%; margin-top: 10px; transition: background-color 0.3s, color 0.3s; margin: 0 auto;">Cancel</buttonTwo>
+        <h3>Cost: 30 Coins</h3>
+        <button onclick="ultra()" style="background-color: #00ff00; color: #000; padding: 14px 25px; font-size: 18px; font-weight: bold; border-radius: 5px; cursor: pointer; width: 50%; transition: background-color 0.3s, color 0.3s; margin: 0 auto; margin-bottom: 10px;">Buy</button><br>
+        <button onclick="closePacks()" style="background-color: #ff0000; color: #fff; padding: 14px 25px; font-size: 18px; font-weight: bold; border: 0px; cursor: pointer; width: 50%; margin-top: 10px; transition: background-color 0.3s, color 0.3s; margin: 0 auto;">Cancel</button>
     `;
 }
 
@@ -217,9 +201,9 @@ function packsUltimate() {
     document.getElementById("packsModal").style.display = "flex";
     document.getElementById("packsContent").innerHTML = `
         <h2>Confirm Ultimate Pack Purchase</h2>
-        <h3>Cost: 30 Coins</h3>
-        <buttonTwo onclick="ultimate()" style="background-color: #00ff00; color: #000; padding: 14px 25px; font-size: 18px; font-weight: bold; border-radius: 5px; cursor: pointer; width: 50%; transition: background-color 0.3s, color 0.3s; margin: 0 auto; margin-bottom: 10px;">Buy</buttonTwo><br>
-        <buttonTwo onclick="closePacks()" style="background-color: #ff0000; color: #fff; padding: 14px 25px; font-size: 18px; font-weight: bold; border: 0px; cursor: pointer; width: 50%; margin-top: 10px; transition: background-color 0.3s, color 0.3s; margin: 0 auto;">Cancel</buttonTwo>
+        <h3>Cost: 45 Coins</h3>
+        <button onclick="ultimate()" style="background-color: #00ff00; color: #000; padding: 14px 25px; font-size: 18px; font-weight: bold; border-radius: 5px; cursor: pointer; width: 50%; transition: background-color 0.3s, color 0.3s; margin: 0 auto; margin-bottom: 10px;">Buy</button><br>
+        <button onclick="closePacks()" style="background-color: #ff0000; color: #fff; padding: 14px 25px; font-size: 18px; font-weight: bold; border: 0px; cursor: pointer; width: 50%; margin-top: 10px; transition: background-color 0.3s, color 0.3s; margin: 0 auto;">Cancel</button>
     `;
 }
 
@@ -263,7 +247,7 @@ function base() {
         <div style="display:flex; flex-wrap: wrap; justify-content: center;">
             ${cards.map(cardName => buildCardHTML(cardName)).join('')}
         </div>
-        <buttonTwo onclick="closeBase()" style="background-color: #ff0000; color: #fff; padding: 14px 25px; font-size: 18px; font-weight: bold; border: 0px; cursor: pointer; width: auto; margin-top: 10px; transition: background-color 0.3s, color 0.3s; margin: 0 auto;">Close</buttonTwo>
+        <button onclick="closeBase()" style="background-color: #ff0000; color: #fff; padding: 14px 25px; font-size: 18px; font-weight: bold; border: 0px; cursor: pointer; width: auto; margin-top: 10px; transition: background-color 0.3s, color 0.3s; margin: 0 auto;">Close</button>
     `;
 }
 
@@ -295,7 +279,7 @@ function ultra() {
         <div style="display:flex; flex-wrap: wrap; justify-content: center;">
             ${cards.map(cardName => buildCardHTML(cardName)).join('')}
         </div>
-        <buttonTwo onclick="closeUltra()" style="background-color: #ff0000; color: #fff; padding: 14px 25px; font-size: 18px; font-weight: bold; border: 0px; cursor: pointer; width: auto; margin-top: 10px; transition: background-color 0.3s, color 0.3s; margin: 0 auto;">Close</buttonTwo>
+        <button onclick="closeUltra()" style="background-color: #ff0000; color: #fff; padding: 14px 25px; font-size: 18px; font-weight: bold; border: 0px; cursor: pointer; width: auto; margin-top: 10px; transition: background-color 0.3s, color 0.3s; margin: 0 auto;">Close</button>
     `;
 }
 
@@ -328,7 +312,7 @@ function ultimate() {
         <div style="display:flex; flex-wrap: wrap; justify-content: center;">
             ${cards.map(cardName => buildCardHTML(cardName)).join('')}
         </div>
-        <buttonTwo onclick="closeUltimate()" style="background-color: #ff0000; color: #fff; padding: 14px 25px; font-size: 18px; font-weight: bold; border: 0px; cursor: pointer; width: auto; margin-top: 10px; transition: background-color 0.3s, color 0.3s; margin: 0 auto;">Close</buttonTwo>
+        <button onclick="closeUltimate()" style="background-color: #ff0000; color: #fff; padding: 14px 25px; font-size: 18px; font-weight: bold; border: 0px; cursor: pointer; width: auto; margin-top: 10px; transition: background-color 0.3s, color 0.3s; margin: 0 auto;">Close</button>
     `;
 }
 
