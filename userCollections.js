@@ -79,8 +79,7 @@ const cardDetails = {
   "Felix Agius": {
     type: "Character",
     rarity: "Common",
-    //image: "felix.jpg",
-    image: null,
+    image: "felix.jpg",
     hp: 90,
     damage: 30,
     ability: 'Special: "Confusion"',
