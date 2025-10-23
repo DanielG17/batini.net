@@ -158,24 +158,24 @@ const cardDetails = {
 
 const userCollections = {
     "dan_grec": {
-        characters: [],
-        powerups: []
+        characters: ["Kenneth Micallef"],
+        powerups: ["30 Health Boost Common", "30 Health Boost Common"]
     },
     "danielrix08": {
-        characters: [],
-        powerups: []
+        characters: ["Kenneth Micallef"],
+        powerups: ["30 Health Boost Rare", "10 Damage Boost Common"]
     },
     "Matteo": {
-        characters: [],
-        powerups: []
+        characters: ["Daniel Vella"],
+        powerups: ["30 Health Boost Common", "10 Damage Boost Rare"]
     },
     "Kennybat1n1": {
         characters: [],
         powerups: []
     },
     "gabriel_bokli": {
-        characters: [],
-        powerups: []
+        characters: ["Ryan Curmi"],
+        powerups: ["30 Health Boost Common", "10 Damage Boost Rare"]
     }
 };
 
