@@ -341,7 +341,7 @@
         </p>
     </div>
 
-
+<!--
 	<a href="election.html">
     	<button style="background-color: #000000;
 		    color: #00ff00;
@@ -356,7 +356,7 @@
                 VISIT ELECTION PAGE HERE
     	</button>
 	</a>
-
+-->
 <!--
     <h2 class="title">BatiniStocks</h2>
         <div style="
@@ -482,7 +482,7 @@
         </div>
     </div>
 
-    <!--
+    
     <hr class="divider">
     <h2>Log In to place your Bets</h2>
     <div class="button-container" style="display: flex; justify-content: center; align-items: center; gap: 20px;">
@@ -534,13 +534,7 @@
         </div>
     </div>
     
-    <script>
-        const userBets = {};
-        let totalBets = Object.keys(userBets).length;
-        let bets = "";
-        let balance = 0;
-        let newBalance = null;
-        const hardCodedBets = [
+    <!--
             {
                 text: "Daniel Vella to win Footvolley league",
                 details: "BET - 10 Coins  /  RETURN + 15 Coins",
@@ -565,6 +559,40 @@
                 text: "Matteo Camilleri to win Footvolley league",
                 details: "BET - 20 Coins  /  RETURN + 35 Coins",
                 cost: 20
+            }
+    -->
+
+    <script>
+        const userBets = {};
+        let totalBets = Object.keys(userBets).length;
+        let bets = "";
+        let balance = 0;
+        let newBalance = null;
+        const hardCodedBets = [
+            {
+                text: "England to win vs Serbia",
+                details: "BET - 5 Coins  /  RETURN + 10 Coins",
+                cost: 5
+            },
+            {
+                text: "Cristiano Ronaldo to score vs Armenia",
+                details: "BET - 5 Coins  /  RETURN + 15 Coins",
+                cost: 5
+            },
+            {
+                text: "Spain to keep clean sheet vs Georgia",
+                details: "BET - 10 Coins  /  RETURN + 20 Coins",
+                cost: 10
+            },
+            {
+                text: "Malta to score vs Finland",
+                details: "BET - 15 Coins  /  RETURN + 25 Coins",
+                cost: 15
+            },
+            {
+                text: "Italy to lose vs Moldova",
+                details: "BET - 15 Coins  /  RETURN + 30 Coins",
+                cost: 15
             }
         ];
 
@@ -651,6 +679,6 @@
             document.getElementById("submitNegative").style.display = "none";
         }
     </script>
-    -->
+    
 </body>
 </html>
