@@ -10,7 +10,7 @@ const users = [
     { name: "Gabriel Xerri", username: "gabriel_bokli", password: "gabriel06", coins: "27" },
     { name: "Ethan Refalo", username: "Ethan", password: "1234", coins: "10" },
     { name: "Kieran Calleja", username: "kieran_kiskis", password: "kiskis1908", coins: "68" },
-    { name: "Denzil Bugeja", username: "denzil", password: "denzil21", coins: "100" },
+    { name: "Denzil Bugeja", username: "denzil", password: "denzil21", coins: "55" },
     { name: "Keith Sultana", username: "keithsultana16", password: "ticklemeuncle", coins: "0" },
     { name: "Kiran Camilleri", username: "Kiran_PsPs21", password: "(zzobbUGhoxx813)", coins: "0"},
     { name: "David Grima", username: "david_g", password: "EmanuelOnTop", coins: "0"},

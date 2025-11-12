@@ -176,6 +176,10 @@ const userCollections = {
     "gabriel_bokli": {
         characters: ["Ryan Curmi"],
         powerups: ["30 Health Boost Common", "10 Damage Boost Rare"]
+    },
+    "denzil": {
+        characters: ["John Gatt", "Luka Haber"],
+        powerups: ["30 Health Boost Rare"]
     }
 };
 
