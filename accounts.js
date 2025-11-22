@@ -1,12 +1,12 @@
 // User data
 const users = [
-    { name: "Daniel Grech", username: "dan_grec", password: "lejber", coins: "68" },
+    { name: "Daniel Grech", username: "dan_grec", password: "lejber", coins: "53" },
     { name: "1", username: "1", password: "1", coins: "100" },
     { name: "John Gatt", username: "John_LLTK", password: "rutartsinimmaawqal", coins: "10" },
-    { name: "Daniel Vella", username: "danielrix08", password: "Iamgay17", coins: "40" },
+    { name: "Daniel Vella", username: "danielrix08", password: "Iamgay17", coins: "55" },
     { name: "Matteo Camilleri", username: "Matteo", password: "12bucklemyshoe", coins: "20" },
     { name: "Kenneth Micallef", username: "Kennybat1n1", password: "abbatinikjddm", coins: "20" },
-    { name: "Jake Sacco", username: "jake_sax", password: "kondoljanzi", coins: "50" },
+    { name: "Jake Sacco", username: "jake_sax", password: "kondoljanzi", coins: "65" },
     { name: "Gabriel Xerri", username: "gabriel_bokli", password: "gabriel06", coins: "27" },
     { name: "Ethan Refalo", username: "Ethan", password: "1234", coins: "10" },
     { name: "Kieran Calleja", username: "kieran_kiskis", password: "kiskis1908", coins: "68" },
