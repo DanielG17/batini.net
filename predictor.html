@@ -174,7 +174,7 @@
         </div>
     </div>
     <script src="accounts.js"></script>
-    <h2><br>Matchday 14 PREDICTIONS</h2>
+    <h2><br>Matchday 16 PREDICTIONS</h2>
 
     <div id="gameSection" style="display: none; text-align: center; margin-top: 20px;">
         <div id="fixturesContainer"></div>
@@ -225,16 +225,16 @@
             "Sunderland": { code: "SUN", color: "#D71920", short: "S" }
         };
         const fixtures = [
-            { home: "Bournemouth", away: "Everton" },
-            { home: "Fulham", away: "Manchester City" },
-            { home: "Newcastle", away: "Tottenham" },
-            { home: "Brighton", away: "Aston Villa"},
-            { home: "Wolves", away: "Nottingham Forest" },
-            { home: "Burnley", away: "Crystal Palace" },
-            { home: "Arsenal", away: "Brentford" },
-            { home: "Leeds", away: "Chelsea" },
-            { home: "Liverpool", away: "Sunderland" },
-            { home: "Manchester United", away: "West Ham" }
+            { home: "Chelsea", away: "Everton" },
+            { home: "Liverpool", away: "Brighton" },
+            { home: "Burnley", away: "Fulham" },
+            { home: "Arsenal", away: "Wolves"},
+            { home: "Crystal Palace", away: "Manchester City" },
+            { home: "Nottingham Forest", away: "Tottenham" },
+            { home: "Sunderland", away: "Newcastle" },
+            { home: "West Ham", away: "Aston Villa" },
+            { home: "Brentford", away: "Leeds" },
+            { home: "Manchester United", away: "Bournemouth" }
         ];
 
         function showGameSection() {
@@ -245,7 +245,7 @@
                 const homeClub = clubs[match.home];
                 const awayClub = clubs[match.away];
                 const matchDiv = document.createElement("div");
-                matchDiv.id = `match-${index}`; // Assign an ID for easy reference
+                matchDiv.id = `match-${index}`;
                 matchDiv.style.marginBottom = "15px";
                 matchDiv.style.backgroundColor = "pink";
                 matchDiv.innerHTML = `
@@ -291,7 +291,7 @@
             }
 
             totalPredictions = Object.keys(userPredictions).length;
-            document.querySelector("#submit h2:last-of-type").innerText = `4: ${loggedInUser}: ${predictions}`;
+            document.querySelector("#submit h2:last-of-type").innerText = `16: ${loggedInUser}: ${predictions}`;
         }
 
         function submit() {
